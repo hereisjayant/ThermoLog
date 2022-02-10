@@ -9,6 +9,9 @@ on windows, do
 on other OS, do
 `source env/bin/activate`
 
+to run the app, do
+`python main.py`
+
 to deactivate 
 on windows, do
 `./env/Scripts/deactivate`
