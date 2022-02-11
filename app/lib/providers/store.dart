@@ -46,6 +46,14 @@ class StoreProvider {
         .get(ApiConstants.store + id + ApiConstants.storeById));
   }
 
+  Future<dynamic> storeFetchLivestream(String liveStreamId) async {
+    Map<String, dynamic> query = {
+      "liveStreamId": liveStreamId
+    };
+    return Store.fromJson(await _apiService
+        .get(ApiConstants.store + ApiConstants.storeFetchLivestream, query: query));
+  }
+
   Future<bool> storeUpdate({
     required String storeId,
     int? capacity,

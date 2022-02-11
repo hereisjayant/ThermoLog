@@ -38,10 +38,11 @@ class ApiConstants {
 
   // dyne_user routes
   static String store = "user/";
-  static String storeById = "byId"; // get request
+  static String storeById = "/byId"; // get request
   static String storeSimilarName = "similarName"; // get request
   static String storeGetAll = "getAll"; // get request
   static String storeCreate = "create"; // post request
+  static String storeFetchLivestream = "fetchLivestream"; // post request
   static String storeUpdate = "/update"; // put request
   static String storeDeleteStore = "/deleteStore"; // delete request
 
