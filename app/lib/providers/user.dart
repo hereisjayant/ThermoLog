@@ -1,4 +1,5 @@
 import 'package:app/models/store.dart';
+import 'package:app/models/user.dart';
 import 'package:app/services/api_service.dart';
 import 'package:app/utils/api_constants.dart';
 import 'package:app/utils/remove_null_and_empty_params.dart';
@@ -19,7 +20,7 @@ class UserProvider {
     return newsList;
   } //
 
-  Future<void> userCreate({
+  Future<bool> userCreate({
     int? phone,
     String? photoUrl,
     int? lastTime,
@@ -44,9 +45,18 @@ class UserProvider {
         body: body);
   }
 
-  Future<User> userById(String id) async {
-    return User.fromJson(await _apiService
-        .get(ApiConstants.user + id + ApiConstants.userByEmailOrId));
+  Future<User?> userByEmailOrId({String? email, String? userId}) async {
+    if (email == null && userId == null)
+      throw Exception("please use email or name");
+    Map<String, dynamic> query = {};
+    if (email != null) {
+      query['email'] = email;
+    } else {
+      query['userId'] = userId;
+    }
+    var route = ApiConstants.user + ApiConstants.userByEmailOrId;
+    var response = await _apiService.get(route, query: query);
+    return response == null ? null : User.fromJson(response);
   }
 
   Future<bool> userUpdate({
