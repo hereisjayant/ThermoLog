@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:app/controllers/base_module/local_storage_data.dart';
 import 'package:app/models/user.dart' as appuser;
 import 'package:app/providers/user.dart';
+import 'package:app/ui/auth_module/create_account_page.dart';
 import 'package:app/ui/base_module/bottom_bar.dart';
 import 'package:app/ui/home_module/home_page.dart';
 import 'package:app/utils/app_images.dart';

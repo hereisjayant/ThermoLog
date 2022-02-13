@@ -1,5 +1,6 @@
 import 'package:app/controllers/profile_module/profile_page.dart';
 import 'package:app/utils/app_colors.dart';
+import 'package:app/utils/app_images.dart';
 import 'package:app/utils/base_class.dart';
 import 'package:app/utils/sizes.dart';
 import 'package:app/utils/skeleton_shapes.dart';
@@ -15,18 +16,15 @@ class ProfilePage extends StatefulWidget with BaseClass {
 
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin, BaseClass {
-  late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(length: 2, vsync: this);
   }
 
   @override
   void dispose() {
     super.dispose();
-    _tabController.dispose();
   }
 
   @override
@@ -55,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage>
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
               ],
@@ -176,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage>
                                   //       fontSize: 16),
                                   // ),
                                   Container(
-                                    margin: EdgeInsets.only(
+                                    margin: const EdgeInsets.only(
                                         left: 40, right: 40, top: 9, bottom: 9),
                                     child: Row(
                                       mainAxisAlignment:
@@ -200,18 +198,18 @@ class _ProfilePageState extends State<ProfilePage>
                                                       FontWeight.w600,
                                                       fontSize: 18),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 5,
                                                 ),
-                                                Image(
-                                                  image: AssetImage(
-                                                      store),
-                                                  height: 20,
-                                                  width: 20,
+
+                                                const Icon(
+                                                  Icons.store,
+                                                  color: Colors.white,
+                                                  size: 35,
                                                 ),
                                               ],
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 5,
                                             ),
                                             Text(

@@ -59,8 +59,8 @@ class UserProvider {
     return response == null ? null : User.fromJson(response);
   }
 
-  Future<bool> userUpdate({
-    int? phone,
+  Future<User?> userUpdate({
+    String? phone,
     String? photoUrl,
     int? lastTime,
     int? safeTime,
@@ -79,8 +79,11 @@ class UserProvider {
       "name": name,
     });
     body = removeNullAndEmptyParams(body)!;
-    return await _apiService
-        .post(ApiConstants.user +userId+ ApiConstants.userUpdate, body: body);
+
+    var response = await _apiService.put(ApiConstants.user +userId+ ApiConstants.userUpdate, body: body);
+    var a = response as Map<String, dynamic>;
+    var b = Map<String, dynamic>.from(a);
+    return User.fromJson(b);
   }
 
   Future<bool> userDeleteUser(String id) async {

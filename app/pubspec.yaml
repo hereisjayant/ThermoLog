@@ -43,6 +43,10 @@ dependencies:
   firebase_messaging: ^11.2.6
   google_fonts: ^2.0.0
   shimmer: ^2.0.0
+  rive: ^0.8.1
+  firebase_storage: ^10.1.0
+  image: ^3.0.2
+  image_picker: ^0.8.0+4
 
 dev_dependencies:
   flutter_test:
