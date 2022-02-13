@@ -1,6 +1,7 @@
 import 'package:app/controllers/auth_module/auth_controller.dart';
 import 'package:app/controllers/base_module/bottom_bar_controller.dart';
 import 'package:app/ui/auth_module/landing_page.dart';
+import 'package:app/ui/stream_module/stream_page.dart';
 import 'package:app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

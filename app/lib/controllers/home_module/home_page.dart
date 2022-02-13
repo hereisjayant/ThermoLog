@@ -35,9 +35,6 @@ class HomePageController extends GetxController {
   bool? get hasNotifs => _hasNotifs;
   bool? _hasNotifs;
 
-  String get userCity => _userCity;
-  late String _userCity;
-
   List<Store> get storeList => _storeList;
   List<Store> _storeList = [];
 

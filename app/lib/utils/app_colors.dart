@@ -13,3 +13,4 @@ Color darkHighlight = Colors.grey[800]!;
 Color headerText = Color(0xFF656565);
 Color subHeaderText = Color(0xFF0A0A0A);
 Color openText = Color(0xFF41CC5F);
+const Color skeletonGrey = Color(0xFFE0E0E0);

@@ -1,4 +1,6 @@
 import 'package:app/ui/home_module/home_page.dart';
+import 'package:app/ui/profile_module/profile_page.dart';
+import 'package:app/ui/stream_module/stream_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
