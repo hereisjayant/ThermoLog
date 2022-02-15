@@ -11,3 +11,9 @@ def testing():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+# Todo
+# 1. finish the basic info endpoints and queries
+# 2. integrate with the video api
