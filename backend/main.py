@@ -16,4 +16,5 @@ if __name__ == '__main__':
 
 # Todo
 # 1. finish the basic info endpoints and queries
+# 3. deploying on heroku
 # 2. integrate with the video api
