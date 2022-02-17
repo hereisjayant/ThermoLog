@@ -10,19 +10,19 @@ CORS(app)
 # constants
 userList = users
 
-@app.route('/user/<userId>/deleteUser', method=['DELETE'])
+@app.route('/user/<userId>/deleteUser', methods=['DELETE'])
 async def delete_user(userId):
     delattr(userList, userId)
     return True
 
-@app.route('/user/<userId>/update', method=['PUT'])
+@app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
     new_user = request.get_json()
     userList[userId] = {key: new_user.get(key, userList[userId][key]) for key in userList[userId]}
     return userList[userId]
     
 
-@app.route('/user/byEmailOrId', method=['GET'])
+@app.route('/user/byEmailOrId', methods=['GET'])
 def find_user():
     email = request.args.get('email')
     userId = request.args.get('userId')
