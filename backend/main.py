@@ -12,11 +12,18 @@ userList = users
 @app.route('/user/byEmailOrId', method=['GET'])
 def find_user():
     email = request.args.get('email')
+    userId = request.args.get('userId')
+
     if email:
         for user in userList:
             if user.email == email:
                 return user
-        return null #TODO
+    elif userId:
+        for user in userList:
+            if user._id == userId:
+                return user
+
+    return None
     
 
 @app.route('/user/create', methods=['POST'])
