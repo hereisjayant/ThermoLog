@@ -32,9 +32,7 @@ def find_user():
             if user.email == email:
                 return user
     elif userId:
-        for user in userList:
-            if user._id == userId:
-                return user
+        return userList[userId]
 
     return None
     
