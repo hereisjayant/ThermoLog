@@ -13,7 +13,8 @@ userList = users
 @app.route('/user/<userId>/update', method=['PUT'])
 async def update_user(userId):
     new_user = request.get_json()
-    
+    userList[userId] = {key: new_user.get(key, userList[userId][key]) for key in userList[userId]}
+    return userList[userId]
     
 
 @app.route('/user/byEmailOrId', method=['GET'])
