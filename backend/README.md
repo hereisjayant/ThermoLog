@@ -17,3 +17,8 @@ on windows, do
 `./env/Scripts/deactivate`
 on other OS, do
 `source env/bin/deactivate`
+
+# Development Resources
+1. solving Win32 error when installing [firebase_admin ](https://stackoverflow.com/questions/51912999/could-not-install-packages-due-to-an-environmenterror-winerror-5-access-is-de) 
+2. freeze requirements: `pip freeze > requirements.txt`
+
