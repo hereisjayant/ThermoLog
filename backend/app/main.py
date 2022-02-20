@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
 
-from users import users
+from app.users import users
 # import firebase_admin
 
 app = Flask(__name__)
