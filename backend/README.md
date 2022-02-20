@@ -21,4 +21,5 @@ on other OS, do
 # Development Resources
 1. solving Win32 error when installing [firebase_admin ](https://stackoverflow.com/questions/51912999/could-not-install-packages-due-to-an-environmenterror-winerror-5-access-is-de) 
 2. freeze requirements: `pip freeze > requirements.txt`
+3. Deploy Git subdirectory to [Heroku](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f)
 
