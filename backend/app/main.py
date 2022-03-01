@@ -34,7 +34,7 @@ def find_user():
     elif userId:
         return (userList[userId], 200)
     else:
-        return ("invalid query", 400)
+        return ("invalid query", 400) #TODO add status code
     return ("DNE", 204)
     
 
