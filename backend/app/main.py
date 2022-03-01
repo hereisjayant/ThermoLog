@@ -3,7 +3,6 @@ from flask_cors import CORS
 
 from app.users import users
 from app.stores import stores
-# import firebase_admin
 
 app = Flask(__name__)
 CORS(app)
@@ -51,7 +50,7 @@ def create_user():
         notificationToken = data.notificationToken,
         storeIds = data.storeIds,
     )
-    return True # TODO: return False for error when actually connected to firebase
+    return True # TODO: return False for error when actually connected to MongoDB
     #TODO: actually put this into a database and then store the generated id from there
 
 
@@ -94,7 +93,7 @@ def create_store():
         name = data.name,
         liveStreamIds = data.liveStreamIds,
     )
-    return True # TODO: return False for error when actually connected to firebase
+    return True # TODO: return False for error when actually connected to MongoDB
     #TODO: actually put this into a database and then store the generated id from there
 
 
@@ -114,4 +113,4 @@ if __name__ == '__main__':
 
 # TODO
 # 2. integrate with the video api
-# 4. change the static data to connect to firebase
+# 4. change the static data to connect to MongoDB
