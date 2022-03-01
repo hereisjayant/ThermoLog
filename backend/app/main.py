@@ -8,14 +8,12 @@ client = MongoClient("mongodb+srv://Team-35:asd()32q441%D@themallog0.hekpn.mongo
 userDb = client.user
 storeDb = client.store
 
-from app.users import users
 from app.stores import stores
 
 app = Flask(__name__)
 CORS(app)
 
 ############## user endpoints ################
-userList = users
 
 @app.route('/user/<userId>/deleteUser', methods=['DELETE'])
 async def delete_user(userId):
@@ -32,7 +30,7 @@ async def delete_user(userId):
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
     new_user = request.get_json()
-    userList[userId] = {key: new_user.get(key, userList[userId][key]) for key in userList[userId]}
+    result = userDb.
     return userList[userId]
     
 
@@ -53,6 +51,8 @@ def find_user():
 
 @app.route('/user/create', methods=['POST'])
 def create_user():
+     # check first if the email exists, if yes don't create user and return null
+
     data = request.form
     userList['this is the test account'] = dict( #TODO: id should be from database
         phone = data.phone,
