@@ -85,7 +85,7 @@ def find_store(storeId):
 @app.route('/store/create', methods=['POST'])
 def create_store():
     data = request.form
-    userList['this is the test store'] = dict( #TODO: id should be from database
+    storeList['this is the test store'] = dict( #TODO: id should be from database
         capacity = data.capacity,
         customerCount = data.customerCount,
         isSafe = data.isSafe,
@@ -112,8 +112,6 @@ if __name__ == '__main__':
 
 
 
-# Todo
-# 1. finish the basic info endpoints and queries
-# 3. deploying on heroku
+# TODO
 # 2. integrate with the video api
 # 4. change the static data to connect to firebase
