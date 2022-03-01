@@ -25,7 +25,7 @@ class StoreProvider {
     bool? isSafe,
     List<double>? temperatures,
     String? name,
-    String? liveStreamId,
+    List<String>? liveStreamIds,
   }) async {
     Map<String, dynamic> body = Map<String, dynamic>.from({
       "capacity": capacity,
@@ -33,7 +33,7 @@ class StoreProvider {
       "isSafe": isSafe,
       "temperatures": temperatures,
       "name": name,
-      "liveStreamId": liveStreamId,
+      "liveStreamIds": liveStreamIds,
     });
     body = removeNullAndEmptyParams(body)!;
     return await _apiService.post(
@@ -61,7 +61,7 @@ class StoreProvider {
     bool? isSafe,
     List<double>? temperatures,
     String? name,
-    String? liveStreamId,
+    List<String>? liveStreamIds,
   }) async {
     Map<String, dynamic> body = Map<String, dynamic>.from({
       "capacity": capacity,
@@ -69,7 +69,7 @@ class StoreProvider {
       "isSafe": isSafe,
       "temperatures": temperatures,
       "name": name,
-      "liveStreamId": liveStreamId,
+      "liveStreamId": liveStreamIds,
     });
     body = removeNullAndEmptyParams(body)!;
     return await _apiService

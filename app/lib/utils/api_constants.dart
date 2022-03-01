@@ -6,8 +6,8 @@ class ApiConstants {
   static const CACHED_USER_DATA = 'CACHED_USER_DATA';
 
   // developer url
-  static String developerBaseUrl = "http://localhost:8080/";
-  static String developerPath = "/dev/api/";
+  static String developerBaseUrl = "https://mighty-tundra-85273.herokuapp.com/";
+  static String developerPath = "";
 
   // local url
   // static String localBaseUrl = "http://localhost:8080";
