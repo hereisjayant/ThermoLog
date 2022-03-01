@@ -20,7 +20,7 @@ on other OS, do
 
 # Deployment
 It is now deployed at 
-`https://mighty-tundra-85273.herokuapp.com/`
+`https://mighty-dusk-83313.herokuapp.com`
 
 To deploy, first login
 `heroku login`
