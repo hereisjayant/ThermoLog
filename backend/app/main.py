@@ -3,8 +3,10 @@ from flask_cors import CORS
 
 from pymongo import MongoClient
 
-client = MongoClient("mongodb+srv://Team-35:<password>@themallog0.hekpn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", server_api=ServerApi('1'))
-db = client.test
+client = MongoClient("mongodb+srv://Team-35:asd()32q441%D@themallog0.hekpn.mongodb.net/ThermalLogDB?retryWrites=true&w=majority", server_api=ServerApi('1'))
+### stores are not strictly associated with users but that's fine
+userDb = client.user
+storeDb = client.store
 
 from app.users import users
 from app.stores import stores
@@ -17,8 +19,15 @@ userList = users
 
 @app.route('/user/<userId>/deleteUser', methods=['DELETE'])
 async def delete_user(userId):
-    delattr(userList, userId)
-    return True
+    # delete stores first
+    user_stores = userDb.find({'_id': userId}).storeIds
+    for storeId in user_stores:
+        result = storeDb.delete_one({"_id": storeId})
+        if not result:
+            return False
+
+    result = userDb.delete_one({"_id": userId})
+    return result
 
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
