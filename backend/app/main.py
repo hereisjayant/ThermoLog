@@ -89,7 +89,7 @@ def find_user():
     
 
 @app.route('/store/create', methods=['POST'])
-def create_user():
+def create_store():
     data = request.form
     userList['this is the test store'] = dict( #TODO: id should be from database
         capacity = data.capacity,
@@ -104,9 +104,9 @@ def create_user():
     #TODO: actually put this into a database and then store the generated id from there
 
 
-@app.route('/user/getAll', methods=['GET'])
-def get_all_users():
-    return userList
+@app.route('/store/getAll', methods=['GET'])
+def get_all_stores():
+    return storeList
 
 @app.route('/', methods=['GET'])
 def testing():
