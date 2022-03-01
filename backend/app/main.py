@@ -8,7 +8,7 @@ from app.stores import stores
 app = Flask(__name__)
 CORS(app)
 
-# constants
+############## user endpoints ################
 userList = users
 
 @app.route('/user/<userId>/deleteUser', methods=['DELETE'])
@@ -59,15 +59,19 @@ def create_user():
 def get_all_users():
     return userList
 
+############## store endpoints ################
+
 storeList = stores 
 
-@app.route('/user/<userId>/deleteUser', methods=['DELETE'])
-async def delete_user(userId):
-    delattr(userList, userId)
+# TODO: fetch livestream endpoint
+
+@app.route('/store/<storeId>/deleteStore', methods=['DELETE'])
+async def delete_store(storeId):
+    delattr(storeList, storeId)
     return True
 
 @app.route('/store/<storeId>/update', methods=['PUT'])
-async def update_user(storeId):
+async def update_store(storeId):
     new_store = request.get_json()
     storeList[storeId] = {key: new_store.get(key, storeList[storeId][key]) for key in storeList[storeId]}
     return storeList[storeId]
