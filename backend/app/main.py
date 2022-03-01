@@ -29,12 +29,12 @@ def find_user():
 
     if email:
         for user in userList:
-            if user.email == email:
-                return user
+            if userList[user]['email'] == email:
+                return userList[user]
     elif userId:
         return userList[userId]
 
-    return None
+    return ("DNE", 204)
     
 
 @app.route('/user/create', methods=['POST'])
