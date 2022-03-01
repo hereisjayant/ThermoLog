@@ -10,7 +10,7 @@ on other OS, do
 `source env/bin/activate`
 
 to run the app, do
-`python main.py`
+`python wsgi.py`
 
 to deactivate 
 on windows, do
