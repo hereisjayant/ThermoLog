@@ -1,6 +1,11 @@
 from flask import Flask, request
 from flask_cors import CORS
 
+from pymongo import MongoClient
+
+client = MongoClient("mongodb+srv://Team-35:<password>@themallog0.hekpn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", server_api=ServerApi('1'))
+db = client.test
+
 from app.users import users
 from app.stores import stores
 
