@@ -73,19 +73,9 @@ async def update_user(userId):
     return userList[userId]
     
 
-@app.route('/user/byEmailOrId', methods=['GET'])
-def find_user():
-    email = request.args.get('email')
-    userId = request.args.get('userId')
-
-    if email:
-        for user in userList:
-            if user.email == email:
-                return user
-    elif userId:
-        return userList[userId]
-
-    return None
+@app.route('/store/<storeId>/byId', methods=['GET'])
+def find_store(storeId):
+    return storeList[storeId]
     
 
 @app.route('/store/create', methods=['POST'])
