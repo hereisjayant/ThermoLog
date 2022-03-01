@@ -66,11 +66,11 @@ async def delete_user(userId):
     delattr(userList, userId)
     return True
 
-@app.route('/user/<userId>/update', methods=['PUT'])
-async def update_user(userId):
-    new_user = request.get_json()
-    userList[userId] = {key: new_user.get(key, userList[userId][key]) for key in userList[userId]}
-    return userList[userId]
+@app.route('/store/<storeId>/update', methods=['PUT'])
+async def update_user(storeId):
+    new_store = request.get_json()
+    storeList[storeId] = {key: new_store.get(key, storeList[storeId][key]) for key in storeList[storeId]}
+    return storeList[storeId]
     
 
 @app.route('/store/<storeId>/byId', methods=['GET'])
