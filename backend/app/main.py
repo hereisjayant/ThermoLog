@@ -30,10 +30,11 @@ def find_user():
     if email:
         for user in userList:
             if userList[user]['email'] == email:
-                return userList[user]
+                return (userList[user], 200)
     elif userId:
-        return userList[userId]
-
+        return (userList[userId], 200)
+    else:
+        return ("invalid query", 400)
     return ("DNE", 204)
     
 
