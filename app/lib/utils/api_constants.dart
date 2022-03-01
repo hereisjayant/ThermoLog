@@ -37,7 +37,7 @@ class ApiConstants {
   static String userDeleteUser = "/deleteUser"; // delete request
 
   // dyne_user routes
-  static String store = "user/";
+  static String store = "store/";
   static String storeById = "/byId"; // get request
   static String storeSimilarName = "similarName"; // get request
   static String storeGetAll = "getAll"; // get request
