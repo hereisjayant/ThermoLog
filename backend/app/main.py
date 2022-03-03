@@ -19,7 +19,7 @@ CORS(app)
 @app.route('/user/<userId>/deleteUser', methods=['DELETE'])
 async def delete_user(userId):
     # delete stores first
-    user_stores = userDb.find({'_id': userId}).storeIds
+    user_stores = userDb.find({'_id': userId})["storeIds"]
     for storeId in user_stores:
         result = storeDb.delete_one({"_id": storeId})
         if not result:
@@ -31,8 +31,10 @@ async def delete_user(userId):
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
     new_user = request.get_json()
-    result = userDb.
-    return (userList[userId], 200)
+    result = userDb.update_one(new_user)
+    if result:
+        return (new_user, 200)
+    return ("there was an error updating the user", 417)
     
 
 @app.route('/user/byEmailOrId', methods=['GET'])
