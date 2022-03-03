@@ -13,7 +13,7 @@ userList = users
 @app.route('/user/<userId>/deleteUser', methods=['DELETE'])
 async def delete_user(userId):
     delattr(userList, userId)
-    return True
+    return ('', 200)
 
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
@@ -38,20 +38,22 @@ def find_user():
     return ("DNE", 204)
     
 
-@app.route('/user/create', methods=['POST'])
+@app.route('/user/create', methods=['GET', 'POST'])
 def create_user():
-    data = request.form
-    userList['this is the test account'] = dict( #TODO: id should be from database
-        phone = data.phone,
-        photoUrl = data.photoUrl,
-        lastTime = data.lastTime,
-        safeTime = data.safeTime,
-        email = data.email,
-        name = data.name,
-        notificationToken = data.notificationToken,
-        storeIds = data.storeIds,
-    )
-    return True # TODO: return False for error when actually connected to MongoDB
+    if request.method == 'POST':
+        data = request.form.to_dict(flat=False)
+        print(type(data),data)
+        userList['this is the test account'] = dict( #TODO: id should be from database
+            phone = data["phone"],
+            photoUrl = data["photoUrl"],
+            lastTime = data["lastTime"],
+            safeTime = data["safeTime"],
+            email = data["email"],
+            name = data["name"],
+            notificationToken = data["notificationToken"],
+            storeIds = data["storeIds"],
+        )
+        return ('created', 200) # TODO: return False for error when actually connected to MongoDB
     #TODO: actually put this into a database and then store the generated id from there
 
 
@@ -82,19 +84,19 @@ def find_store(storeId):
     return storeList[storeId]
     
 
-@app.route('/store/create', methods=['POST'])
+@app.route('/store/create', methods=['GET', 'POST'])
 def create_store():
     data = request.form
     storeList['this is the test store'] = dict( #TODO: id should be from database
-        capacity = data.capacity,
-        customerCount = data.customerCount,
-        isSafe = data.isSafe,
-        temperatures = data.temperatures,
-        email = data.email,
-        name = data.name,
-        liveStreamIds = data.liveStreamIds,
+        capacity = data["capacity"],
+        customerCount = data["customerCount"],
+        isSafe = data["isSafe"],
+        temperatures = data["temperatures"],
+        email = data["email"],
+        name = data["name"],
+        liveStreamIds = data["liveStreamIds"],
     )
-    return True # TODO: return False for error when actually connected to MongoDB
+    return ('created', 200) # TODO: return False for error when actually connected to MongoDB
     #TODO: actually put this into a database and then store the generated id from there
 
 
