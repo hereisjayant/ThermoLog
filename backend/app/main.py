@@ -31,7 +31,7 @@ async def delete_user(userId):
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
     new_user = request.get_json()
-    result = userDb.update_one(new_user)
+    result = userDb.replace_one({"_id": userId}, new_user)
     if result:
         return (new_user, 200)
     return ("there was an error updating the user", 417)
@@ -43,14 +43,17 @@ def find_user():
     userId = request.args.get('userId')
 
     if email:
-        for user in userList:
-            if userList[user]['email'] == email:
-                return (userList[user], 200)
+        user = userDb.find_one({"email": email })
+        if user:
+            return (user, 200)
+        return ('user not found', 400)
     elif userId:
-        return (userList[userId], 200)
+        user = userDb.find_one({"_id": userId })
+        if user:
+            return (user, 200)
+        return ('user not found', 400)
     else:
-        return ("invalid query", 400) #TODO add status code
-    return ("DNE", 204)
+        return ("invalid query", 400)
     
 
 @app.route('/user/create', methods=['GET', 'POST'])
