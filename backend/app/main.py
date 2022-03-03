@@ -87,7 +87,11 @@ def create_user():
 
 @app.route('/user/getAll', methods=['GET'])
 def get_all_users():
-    return (userList, 200)
+    try:
+        userList = userDb.find({})
+        return (userList, 200)
+    except Exception as e:
+        return ("There was an error pulling all the user" + e, 417)
 
 ############## store endpoints ################
 
