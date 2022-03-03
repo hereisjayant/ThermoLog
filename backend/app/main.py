@@ -19,7 +19,7 @@ async def delete_user(userId):
 async def update_user(userId):
     new_user = request.get_json()
     userList[userId] = {key: new_user.get(key, userList[userId][key]) for key in userList[userId]}
-    return userList[userId]
+    return (userList[userId], 200)
     
 
 @app.route('/user/byEmailOrId', methods=['GET'])
@@ -53,13 +53,13 @@ def create_user():
             notificationToken = data["notificationToken"],
             storeIds = data["storeIds"],
         )
-        return ('created', 200) # TODO: return False for error when actually connected to MongoDB
+        return ('user created', 200) # TODO: return False for error when actually connected to MongoDB
     #TODO: actually put this into a database and then store the generated id from there
 
 
 @app.route('/user/getAll', methods=['GET'])
 def get_all_users():
-    return userList
+    return (userList, 200)
 
 ############## store endpoints ################
 
@@ -70,23 +70,23 @@ storeList = stores
 @app.route('/store/<storeId>/deleteStore', methods=['DELETE'])
 async def delete_store(storeId):
     delattr(storeList, storeId)
-    return True
+    return ("store deleted", 200)
 
 @app.route('/store/<storeId>/update', methods=['PUT'])
 async def update_store(storeId):
     new_store = request.get_json()
     storeList[storeId] = {key: new_store.get(key, storeList[storeId][key]) for key in storeList[storeId]}
-    return storeList[storeId]
+    return (storeList[storeId], 200)
     
 
 @app.route('/store/<storeId>/byId', methods=['GET'])
 def find_store(storeId):
-    return storeList[storeId]
+    return (storeList[storeId], 200)
     
 
 @app.route('/store/create', methods=['GET', 'POST'])
 def create_store():
-    data = request.form
+    data = request.form.to_dict(flat=False)
     storeList['this is the test store'] = dict( #TODO: id should be from database
         capacity = data["capacity"],
         customerCount = data["customerCount"],
@@ -102,12 +102,12 @@ def create_store():
 
 @app.route('/store/getAll', methods=['GET'])
 def get_all_stores():
-    return storeList
+    return (storeList, 200)
 
 @app.route('/', methods=['GET'])
 def testing():
     if request.method == 'GET':
-        return 'Hello'
+        return ('Hello', 200)
 
 if __name__ == '__main__':
     app.run(debug=True)
