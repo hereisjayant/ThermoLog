@@ -9,8 +9,6 @@ client = MongoClient("mongodb+srv://Team-35:asd()32q441%D@themallog0.hekpn.mongo
 userDb = client.user
 storeDb = client.store
 
-from app.stores import stores
-
 app = Flask(__name__)
 CORS(app)
 
@@ -95,8 +93,6 @@ def get_all_users():
 
 ############## store endpoints ################
 
-storeList = stores 
-
 # TODO: fetch livestream endpoint
 
 @app.route('/store/<storeId>/deleteStore', methods=['DELETE'])
@@ -137,8 +133,6 @@ def get_all_stores():
     return (storeList, 200)
 
 ############## store endpoints ################
-
-storeList = stores 
 
 # TODO: fetch livestream endpoint
 
