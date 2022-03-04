@@ -53,7 +53,7 @@ class AuthController extends GetxController {
   _getUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var value = prefs.getString('user');
-    return appuser.User.fromJson(json.decode(value!));
+    return value == "" ? null: appuser.User.fromJson(json.decode(value!));
   }
 
   Future checkCurrentUser() async {
@@ -287,11 +287,11 @@ class AuthController extends GetxController {
   Future<void> createUser(String displayName, String email) async {
     try {
       String? notificationToken = await _firebaseMessaging.getToken();
-      List<String> interests = [
-        "Not Applicable",
-        "Not Applicable",
-        "Not Applicable"
-      ];
+      // List<String> interests = [
+      //   "Not Applicable",
+      //   "Not Applicable",
+      //   "Not Applicable"
+      // ];
       bool value = await userProvider.userCreate(
           name: displayName, email: email,notificationToken:  notificationToken!);
       if (value) {
