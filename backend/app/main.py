@@ -103,14 +103,15 @@ def find_store(storeId):
 def create_store():
     data = request.form.to_dict()
     data["isSafe"] = True
-    storeList['this is the test store'] = dict(  # TODO: id should be from database
-        capacity=data["capacity"],
-        customerCount=data["customerCount"],
-        isSafe=data["isSafe"],
-        temperatures=data["temperatures"],
-        name=data["name"],
-        liveStreamIds=data["liveStreamIds"],
-    )
+    storeList['this is the test store'] = data
+    # dict(  # TODO: id should be from database
+    #     capacity=data["capacity"],
+    #     customerCount=data["customerCount"],
+    #     isSafe=data["isSafe"],
+    #     temperatures=data["temperatures"],
+    #     name=data["name"],
+    #     liveStreamIds=data["liveStreamIds"],
+    # )
     # TODO: return False for error when actually connected to MongoDB
     return ('created', 200)
     # TODO: actually put this into a database and then store the generated id from there
