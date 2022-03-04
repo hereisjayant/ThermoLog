@@ -10,7 +10,7 @@ on other OS, do
 `source env/bin/activate`
 
 to run the app, do
-`python main.py`
+`python wsgi.py`
 
 to deactivate 
 on windows, do
@@ -20,7 +20,14 @@ on other OS, do
 
 # Deployment
 It is now deployed at 
-`https://mighty-tundra-85273.herokuapp.com/`
+`https://mighty-dusk-83313.herokuapp.com`
+
+To deploy, first login
+`heroku login`
+using the cpen391 thermolog email
+
+then deploy this subdirectory
+`git subtree push --prefix backend/ heroku main`
 
 # Development Resources
 1. solving Win32 error when installing [firebase_admin ](https://stackoverflow.com/questions/51912999/could-not-install-packages-due-to-an-environmenterror-winerror-5-access-is-de) 
