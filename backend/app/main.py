@@ -1,50 +1,76 @@
 from flask import Flask, request
 from flask_cors import CORS
 
-from app.users import users
-from app.stores import stores
+from pymongo import MongoClient
+
+client = MongoClient("mongodb+srv://Team-35:asd()32q441%D@themallog0.hekpn.mongodb.net/ThermalLogDB?retryWrites=true&w=majority", server_api=ServerApi('1'))
+### stores are not strictly associated with users 
+### so the invariant needs to be upheld by the api
+userDb = client.user
+storeDb = client.store
 
 app = Flask(__name__)
 CORS(app)
 
 ############## user endpoints ################
-userList = users
 
 
 @app.route('/user/<userId>/deleteUser', methods=['DELETE'])
 async def delete_user(userId):
-    delattr(userList, userId)
-    return ('', 200)
+    # delete stores first
+    try:
+        user_stores = userDb.find({'_id': userId})["storeIds"]
+        for storeId in user_stores:
+            result = storeDb.delete_one({"_id": storeId})
+            if not result:
+                return ('user not deleted', 417)
+
+        result = userDb.delete_one({"_id": userId})
+        return (result, 200)
+    except Exception as e:
+        return ("There was an error deleting the user" + e, 417)
+
 
 
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
-    new_user = request.get_json()
-    userList[userId] = {key: new_user.get(
-        key, userList[userId][key]) for key in userList[userId]}
-    return (userList[userId], 200)
-
+    try:
+        new_user = request.get_json()
+        result = userDb.replace_one({"_id": userId}, new_user)
+        if result:
+            return (new_user, 200)
+        return ("there was an error updating the user", 417)
+    except Exception as e:
+        return ("There was an error updating the user" + e, 417)
+    
 
 @app.route('/user/byEmailOrId', methods=['GET'])
 def find_user():
-    email = request.args.get('email')
-    userId = request.args.get('userId')
+    try:
+        email = request.args.get('email')
+        userId = request.args.get('userId')
 
-    if email:
-        for user in userList:
-            if userList[user]['email'] == email:
-                return (userList[user], 200)
-    elif userId:
-        return (userList[userId], 200)
-    else:
-        return ("invalid query", 400)  # TODO add status code
-    return ("DNE", 204)
+        if email:
+            user = userDb.find_one({"email": email })
+            if user:
+                return (user, 200)
+            return ('user not found', 400)
+        elif userId:
+            user = userDb.find_one({"_id": userId })
+            if user:
+                return (user, 200)
+            return ('user not found', 400)
+        else:
+            return ("invalid query", 400)
+    except Exception as e:
+        return ("There was an error querying the user" + e, 417)
 
 
 @app.route('/user/create', methods=['GET', 'POST'])
 def create_user():
     from datetime import datetime
     if request.method == 'POST':
+
         data = request.form.to_dict()
         print(type(data), data)
 
@@ -53,6 +79,11 @@ def create_user():
 
         data["lastTime"] = data["safeTime"] = time
         userList['userId1'] = data
+        try:
+            userDb.insert_one(data)
+            return ('user created', 200)
+        except Exception as e:
+            return ("There was an error creating the user" + e, 417)
         # dict(  # TODO: id should be from database
         #     phone=data["phone"] if data["phone"] is not None else "6048186637",
         #     photoUrl=data["photoUrl"] if data["photoUrl"] is not None else "https://www.google.com/url?sa=i&url=https%3A%2F%2Fallthings.how%2Fhow-to-change-your-profile-picture-on-google-meet%2F&psig=AOvVaw2VMU2VXIMub_LScgx7S8zb&ust=1645035637738000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCpvbupgvYCFQAAAAAdAAAAABAD",
@@ -67,15 +98,15 @@ def create_user():
         return ('user created', 200)
     # TODO: actually put this into a database and then store the generated id from there
 
-
 @app.route('/user/getAll', methods=['GET'])
 def get_all_users():
-    return (userList, 200)
+    try:
+        userList = userDb.find({})
+        return (userList, 200)
+    except Exception as e:
+        return ("There was an error pulling all the user" + e, 417)
 
 ############## store endpoints ################
-
-
-storeList = stores
 
 # TODO: fetch livestream endpoint
 
@@ -121,6 +152,46 @@ def create_store():
 def get_all_stores():
     return (storeList, 200)
 
+############## store endpoints ################
+
+# TODO: fetch livestream endpoint
+
+@app.route('/store/<storeId>/deleteStore', methods=['DELETE'])
+async def delete_store(storeId):
+    delattr(storeList, storeId)
+    return True
+
+@app.route('/store/<storeId>/update', methods=['PUT'])
+async def update_store(storeId):
+    new_store = request.get_json()
+    storeList[storeId] = {key: new_store.get(key, storeList[storeId][key]) for key in storeList[storeId]}
+    return storeList[storeId]
+    
+
+@app.route('/store/<storeId>/byId', methods=['GET'])
+def find_store(storeId):
+    return storeList[storeId]
+    
+
+@app.route('/store/create', methods=['POST'])
+def create_store():
+    data = request.form
+    storeList['this is the test store'] = dict( #TODO: id should be from database
+        capacity = data.capacity,
+        customerCount = data.customerCount,
+        isSafe = data.isSafe,
+        temperatures = data.temperatures,
+        email = data.email,
+        name = data.name,
+        liveStreamIds = data.liveStreamIds,
+    )
+    return True # TODO: return False for error when actually connected to MongoDB
+    #TODO: actually put this into a database and then store the generated id from there
+
+
+@app.route('/store/getAll', methods=['GET'])
+def get_all_stores():
+    return storeList
 
 @app.route('/', methods=['GET'])
 def testing():
