@@ -50,9 +50,9 @@ class EditProfileController extends GetxController {
   Future<void> onInit() async {
     super.onInit();
     await getCurrentUser().then((value) async {
-      // await setInitialControllers();
+      await setInitialControllers();
     });
-    await setInitialControllers();
+    // await setInitialControllers();
   }
 
   //updates the DyneUser in users collection

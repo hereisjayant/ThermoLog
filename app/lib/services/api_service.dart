@@ -21,10 +21,10 @@ class ApiService {
     try {
       var response;
       if (query == null) {
-        response = await http.get(Uri.http(_baseUrl, _path + route),
+        response = await http.get(Uri.https(_baseUrl, _path + route),
             headers: ApiConstants.headers);
       } else {
-        response = await http.get(Uri.http(_baseUrl, _path + route, query),
+        response = await http.get(Uri.https(_baseUrl, _path + route, query),
             headers: ApiConstants.headers);
       }
       responseJson = returnResponse(response);
@@ -40,10 +40,10 @@ class ApiService {
     try {
       var response;
       if (query == null) {
-        response = await http.post(Uri.http(_baseUrl, _path + route),
+        response = await http.post(Uri.https(_baseUrl, _path + route),
             body: jsonEncode(body), headers: ApiConstants.headers);
       } else {
-        response = await http.post(Uri.http(_baseUrl, _path + route, query),
+        response = await http.post(Uri.https(_baseUrl, _path + route, query),
             body: jsonEncode(body), headers: ApiConstants.headers);
       }
       responseJson = returnResponse(response);
@@ -59,14 +59,14 @@ class ApiService {
     try {
       var response;
       if (body == null && query == null) {
-        response = await http.put(Uri.http(_baseUrl, _path + route),
+        response = await http.put(Uri.https(_baseUrl, _path + route),
             headers: ApiConstants.headers);
       } else if (query == null) {
-        response = await http.put(Uri.http(_baseUrl, _path + route),
+        response = await http.put(Uri.https(_baseUrl, _path + route),
             body: jsonEncode(body), headers: ApiConstants.headers);
       } else {
         print(Uri.http(_baseUrl, _path + route, query));
-        response = await http.put(Uri.http(_baseUrl, _path + route, query),
+        response = await http.put(Uri.https(_baseUrl, _path + route, query),
             body: jsonEncode(body), headers: ApiConstants.headers);
       }
       responseJson = returnResponse(response);
@@ -81,9 +81,9 @@ class ApiService {
     try {
       var response;
       if (query == null) {
-        response = await http.delete(Uri.http(_baseUrl, _path + route));
+        response = await http.delete(Uri.https(_baseUrl, _path + route));
       } else {
-        response = await http.delete(Uri.http(_baseUrl, _path + route),
+        response = await http.delete(Uri.https(_baseUrl, _path + route),
             headers: ApiConstants.headers);
       }
       responseJson = returnResponse(response);

@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class ProfilePage extends StatefulWidget with BaseClass {
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -16,7 +15,6 @@ class ProfilePage extends StatefulWidget with BaseClass {
 
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin, BaseClass {
-
   @override
   void initState() {
     super.initState();
@@ -32,10 +30,18 @@ class _ProfilePageState extends State<ProfilePage>
     return GetBuilder<ProfilePageController>(
         init: ProfilePageController(),
         builder: (controller) => Scaffold(
-            backgroundColor: lightAccent,
+            backgroundColor: lightHighlight,
             appBar: AppBar(
               backgroundColor: lightAccent,
               elevation: Sizes.ELEVATION_0,
+              centerTitle: true,
+              title: Text(
+                "Profile",
+                style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18),
+              ),
               actions: [
                 Container(
                   width: 25,
@@ -69,9 +75,12 @@ class _ProfilePageState extends State<ProfilePage>
                     children: [
                       Align(
                         alignment: Alignment.topCenter,
-                        child: Column(
+                        child: Container(
+                          padding:
+                          const EdgeInsets.only(left: 16, top: 25),
+                          child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             GestureDetector(
                               onTap: () {
@@ -91,167 +100,159 @@ class _ProfilePageState extends State<ProfilePage>
                                 // });
                               },
                               child: Stack(
-                                children: [
-                                  Container(
-                                    height: 130,
-                                    width: 130,
-                                    child: Container(
+                                  children: [
+                                    Container(
+                                      height: 95,
+                                      width: 95,
                                       child: Container(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white,
+                                              border: Border.all(
+                                                  color: Colors.white)),
+                                          padding: EdgeInsets.all(1),
+                                          child: _getProfilePicture(controller),
+                                        ),
                                         decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
                                             color: Colors.white,
-                                            border: Border.all(
-                                                color: Colors.white)),
-                                        padding: EdgeInsets.all(1),
-                                        child: _getProfilePicture(controller),
+                                            width: 4.0,
+                                          ),
+                                        ),
                                       ),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
+                                    ),
+                                    Positioned(
+                                      top: 6,
+                                      left: 6,
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        padding: const EdgeInsets.all(10),
+                                        decoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            stops: [0.1, 0.7],
+                                            colors: [
+                                              Color.fromARGB(50, 0, 0, 0),
+                                              Color.fromARGB(50, 0, 0, 0),
+                                            ], // stops: [0.0, 0.1],
+                                          ),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        height: 85,
+                                        width: 85,
+                                      ),
+                                    ),
+                                    const Positioned(
+                                        top: 35,
+                                        left: 35,
+                                        child: Icon(
+                                          Icons.edit,
                                           color: Colors.white,
-                                          width: 4.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    top: 6,
-                                    left: 6,
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          stops: [0.1, 0.7],
-                                          colors: [
-                                            Color.fromARGB(50, 0, 0, 0),
-                                            Color.fromARGB(50, 0, 0, 0),
-                                          ], // stops: [0.0, 0.1],
-                                        ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      height: 120,
-                                      width: 120,
-                                    ),
-                                  ),
-                                  const Positioned(
-                                      top: 55,
-                                      left: 55,
-                                      child: Icon(
-                                        Icons.edit,
-                                        color: Colors.white,
-                                      )),
-                                ],
+                                        )),
+                                  ],
+                                ),
                               ),
+
+                            const SizedBox(
+                              height: 5,
                             ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  controller.loading.value['user'] ?? true
-                                      ? ShimmerSkeleton(
-                                    enabled: controller
-                                        .loading.value['user'] ??
+                            controller.loading.value['user'] ?? true
+                                ? ShimmerSkeleton(
+                                    enabled: controller.loading.value['user'] ??
                                         true,
                                     child: SkeletonRect(
                                         width: Get.width * 0.2,
                                         height: 20,
                                         borderRadius: 5),
                                   )
-                                      : Text(
+                                : Text(
                                     controller.user!.name!,
                                     style: GoogleFonts.poppins(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18),
                                   ),
-                                  // Text(
-                                  //   controller.userCity!,
-                                  //   style: GoogleFonts.poppins(
-                                  //       color: profileGrey,
-                                  //       fontWeight: FontWeight.w400,
-                                  //       fontSize: 16),
-                                  // ),
-                                  Container(
-                                    margin: const EdgeInsets.only(
-                                        left: 40, right: 40, top: 9, bottom: 9),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                controller.loading
-                                                    .value['user'] ??
-                                                    true
-                                                    ? SizedBox.shrink()
-                                                    : Text(
-                                                  controller.user!
-                                                      .storeIds!.length
+                            // Text(
+                            //   controller.userCity!,
+                            //   style: GoogleFonts.poppins(
+                            //       color: profileGrey,
+                            //       fontWeight: FontWeight.w400,
+                            //       fontSize: 16),
+                            // ),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  left: 40, right: 40, top: 9, bottom: 9),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          controller.loading.value['user'] ??
+                                                  true
+                                              ? SizedBox.shrink()
+                                              : Text(
+                                                  controller
+                                                      .user!.storeIds!.length
                                                       .toString(),
                                                   style: GoogleFonts.poppins(
                                                       color: Colors.black,
                                                       fontWeight:
-                                                      FontWeight.w600,
+                                                          FontWeight.w600,
                                                       fontSize: 18),
                                                 ),
-                                                const SizedBox(
-                                                  width: 5,
-                                                ),
-
-                                                const Icon(
-                                                  Icons.store,
-                                                  color: Colors.white,
-                                                  size: 35,
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text(
-                                              'Stores',
-                                              style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 16),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          const Icon(
+                                            Icons.store,
+                                            color: Colors.white,
+                                            size: 35,
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(
+                                        'Stores',
+                                        style: GoogleFonts.poppins(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16),
+                                      ),
+                                    ],
                                   ),
-
-                                  Divider(),
-
                                 ],
                               ),
                             ),
 
+                            Divider(),
                           ],
                         ),
-                      ),
+                      ),)
                     ],
                   ),
                 ],
               ),
             )));
   }
-
 }
 
 Widget _getProfilePicture(ProfilePageController controller) {
   return controller.loading.value['user'] ?? true
       ? ShimmerSkeleton(
-      enabled: controller.loading.value['user'] ?? true,
-      child: SkeletonCircle(radius: 60))
+          enabled: controller.loading.value['user'] ?? true,
+          child: SkeletonCircle(radius: 60))
       : CircleAvatar(
-    radius: 60,
-    backgroundImage: NetworkImage(
-      controller.user!.photoUrl!,
-    ),
-  );
+          radius: 60,
+          backgroundImage: NetworkImage(
+            controller.user!.photoUrl!,
+          ),
+        );
 }
