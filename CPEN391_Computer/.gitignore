@@ -1,0 +1,6 @@
+*.code-workspace
+.*
+!/.gitignore
+db/
+incremental_db/
+RemoteSystemsTempFiles/
