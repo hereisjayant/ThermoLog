@@ -180,8 +180,10 @@ def get_all_stores():
 
 @app.route('/', methods=['GET'])
 def testing():
+    print("Hey logger")
     if request.method == 'GET':
-        return 'Hello'
+        print("GET logger")
+        return ('Hello', 200)
 
 
 if __name__ == '__main__':

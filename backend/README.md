@@ -23,7 +23,7 @@ It is now deployed at
 `https://mighty-dusk-83313.herokuapp.com`
 
 To deploy, first login
-`heroku login`
+`heroku login``heroku git:remote -a heroku-391`
 using the cpen391 thermolog email
 
 then deploy this subdirectory
