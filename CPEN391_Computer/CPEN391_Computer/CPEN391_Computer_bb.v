@@ -1,24 +1,8 @@
 
 module CPEN391_Computer (
-	system_pll_ref_clk_clk,
-	system_pll_ref_reset_reset,
-	sdram_clk_clk,
-	memory_mem_a,
-	memory_mem_ba,
-	memory_mem_ck,
-	memory_mem_ck_n,
-	memory_mem_cke,
-	memory_mem_cs_n,
-	memory_mem_ras_n,
-	memory_mem_cas_n,
-	memory_mem_we_n,
-	memory_mem_reset_n,
-	memory_mem_dq,
-	memory_mem_dqs,
-	memory_mem_dqs_n,
-	memory_mem_odt,
-	memory_mem_dm,
-	memory_oct_rzqin,
+	hex0_1_export,
+	hex2_3_export,
+	hex4_5_export,
 	hps_io_hps_io_emac1_inst_TX_CLK,
 	hps_io_hps_io_emac1_inst_TXD0,
 	hps_io_hps_io_emac1_inst_TXD1,
@@ -67,6 +51,24 @@ module CPEN391_Computer (
 	hps_io_hps_io_i2c0_inst_SCL,
 	hps_io_hps_io_i2c1_inst_SDA,
 	hps_io_hps_io_i2c1_inst_SCL,
+	leds_export,
+	memory_mem_a,
+	memory_mem_ba,
+	memory_mem_ck,
+	memory_mem_ck_n,
+	memory_mem_cke,
+	memory_mem_cs_n,
+	memory_mem_ras_n,
+	memory_mem_cas_n,
+	memory_mem_we_n,
+	memory_mem_reset_n,
+	memory_mem_dq,
+	memory_mem_dqs,
+	memory_mem_dqs_n,
+	memory_mem_odt,
+	memory_mem_dm,
+	memory_oct_rzqin,
+	pushbuttons_export,
 	sdram_addr,
 	sdram_ba,
 	sdram_cas_n,
@@ -76,32 +78,14 @@ module CPEN391_Computer (
 	sdram_dqm,
 	sdram_ras_n,
 	sdram_we_n,
-	leds_export,
-	hex0_1_export,
-	hex2_3_export,
-	hex4_5_export,
+	sdram_clk_clk,
 	slider_switches_export,
-	pushbuttons_export);	
+	system_pll_ref_clk_clk,
+	system_pll_ref_reset_reset);	
 
-	input		system_pll_ref_clk_clk;
-	input		system_pll_ref_reset_reset;
-	output		sdram_clk_clk;
-	output	[14:0]	memory_mem_a;
-	output	[2:0]	memory_mem_ba;
-	output		memory_mem_ck;
-	output		memory_mem_ck_n;
-	output		memory_mem_cke;
-	output		memory_mem_cs_n;
-	output		memory_mem_ras_n;
-	output		memory_mem_cas_n;
-	output		memory_mem_we_n;
-	output		memory_mem_reset_n;
-	inout	[31:0]	memory_mem_dq;
-	inout	[3:0]	memory_mem_dqs;
-	inout	[3:0]	memory_mem_dqs_n;
-	output		memory_mem_odt;
-	output	[3:0]	memory_mem_dm;
-	input		memory_oct_rzqin;
+	output	[7:0]	hex0_1_export;
+	output	[7:0]	hex2_3_export;
+	output	[7:0]	hex4_5_export;
 	output		hps_io_hps_io_emac1_inst_TX_CLK;
 	output		hps_io_hps_io_emac1_inst_TXD0;
 	output		hps_io_hps_io_emac1_inst_TXD1;
@@ -150,6 +134,24 @@ module CPEN391_Computer (
 	inout		hps_io_hps_io_i2c0_inst_SCL;
 	inout		hps_io_hps_io_i2c1_inst_SDA;
 	inout		hps_io_hps_io_i2c1_inst_SCL;
+	output	[9:0]	leds_export;
+	output	[14:0]	memory_mem_a;
+	output	[2:0]	memory_mem_ba;
+	output		memory_mem_ck;
+	output		memory_mem_ck_n;
+	output		memory_mem_cke;
+	output		memory_mem_cs_n;
+	output		memory_mem_ras_n;
+	output		memory_mem_cas_n;
+	output		memory_mem_we_n;
+	output		memory_mem_reset_n;
+	inout	[31:0]	memory_mem_dq;
+	inout	[3:0]	memory_mem_dqs;
+	inout	[3:0]	memory_mem_dqs_n;
+	output		memory_mem_odt;
+	output	[3:0]	memory_mem_dm;
+	input		memory_oct_rzqin;
+	input	[3:0]	pushbuttons_export;
 	output	[12:0]	sdram_addr;
 	output	[1:0]	sdram_ba;
 	output		sdram_cas_n;
@@ -159,10 +161,8 @@ module CPEN391_Computer (
 	output	[1:0]	sdram_dqm;
 	output		sdram_ras_n;
 	output		sdram_we_n;
-	output	[9:0]	leds_export;
-	output	[7:0]	hex0_1_export;
-	output	[7:0]	hex2_3_export;
-	output	[7:0]	hex4_5_export;
+	output		sdram_clk_clk;
 	input	[9:0]	slider_switches_export;
-	input	[3:0]	pushbuttons_export;
+	input		system_pll_ref_clk_clk;
+	input		system_pll_ref_reset_reset;
 endmodule

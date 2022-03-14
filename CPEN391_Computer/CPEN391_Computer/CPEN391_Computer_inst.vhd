@@ -1,24 +1,8 @@
 	component CPEN391_Computer is
 		port (
-			system_pll_ref_clk_clk          : in    std_logic                     := 'X';             -- clk
-			system_pll_ref_reset_reset      : in    std_logic                     := 'X';             -- reset
-			sdram_clk_clk                   : out   std_logic;                                        -- clk
-			memory_mem_a                    : out   std_logic_vector(14 downto 0);                    -- mem_a
-			memory_mem_ba                   : out   std_logic_vector(2 downto 0);                     -- mem_ba
-			memory_mem_ck                   : out   std_logic;                                        -- mem_ck
-			memory_mem_ck_n                 : out   std_logic;                                        -- mem_ck_n
-			memory_mem_cke                  : out   std_logic;                                        -- mem_cke
-			memory_mem_cs_n                 : out   std_logic;                                        -- mem_cs_n
-			memory_mem_ras_n                : out   std_logic;                                        -- mem_ras_n
-			memory_mem_cas_n                : out   std_logic;                                        -- mem_cas_n
-			memory_mem_we_n                 : out   std_logic;                                        -- mem_we_n
-			memory_mem_reset_n              : out   std_logic;                                        -- mem_reset_n
-			memory_mem_dq                   : inout std_logic_vector(31 downto 0) := (others => 'X'); -- mem_dq
-			memory_mem_dqs                  : inout std_logic_vector(3 downto 0)  := (others => 'X'); -- mem_dqs
-			memory_mem_dqs_n                : inout std_logic_vector(3 downto 0)  := (others => 'X'); -- mem_dqs_n
-			memory_mem_odt                  : out   std_logic;                                        -- mem_odt
-			memory_mem_dm                   : out   std_logic_vector(3 downto 0);                     -- mem_dm
-			memory_oct_rzqin                : in    std_logic                     := 'X';             -- oct_rzqin
+			hex0_1_export                   : out   std_logic_vector(7 downto 0);                     -- export
+			hex2_3_export                   : out   std_logic_vector(7 downto 0);                     -- export
+			hex4_5_export                   : out   std_logic_vector(7 downto 0);                     -- export
 			hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0   : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
 			hps_io_hps_io_emac1_inst_TXD1   : out   std_logic;                                        -- hps_io_emac1_inst_TXD1
@@ -67,6 +51,24 @@
 			hps_io_hps_io_i2c0_inst_SCL     : inout std_logic                     := 'X';             -- hps_io_i2c0_inst_SCL
 			hps_io_hps_io_i2c1_inst_SDA     : inout std_logic                     := 'X';             -- hps_io_i2c1_inst_SDA
 			hps_io_hps_io_i2c1_inst_SCL     : inout std_logic                     := 'X';             -- hps_io_i2c1_inst_SCL
+			leds_export                     : out   std_logic_vector(9 downto 0);                     -- export
+			memory_mem_a                    : out   std_logic_vector(14 downto 0);                    -- mem_a
+			memory_mem_ba                   : out   std_logic_vector(2 downto 0);                     -- mem_ba
+			memory_mem_ck                   : out   std_logic;                                        -- mem_ck
+			memory_mem_ck_n                 : out   std_logic;                                        -- mem_ck_n
+			memory_mem_cke                  : out   std_logic;                                        -- mem_cke
+			memory_mem_cs_n                 : out   std_logic;                                        -- mem_cs_n
+			memory_mem_ras_n                : out   std_logic;                                        -- mem_ras_n
+			memory_mem_cas_n                : out   std_logic;                                        -- mem_cas_n
+			memory_mem_we_n                 : out   std_logic;                                        -- mem_we_n
+			memory_mem_reset_n              : out   std_logic;                                        -- mem_reset_n
+			memory_mem_dq                   : inout std_logic_vector(31 downto 0) := (others => 'X'); -- mem_dq
+			memory_mem_dqs                  : inout std_logic_vector(3 downto 0)  := (others => 'X'); -- mem_dqs
+			memory_mem_dqs_n                : inout std_logic_vector(3 downto 0)  := (others => 'X'); -- mem_dqs_n
+			memory_mem_odt                  : out   std_logic;                                        -- mem_odt
+			memory_mem_dm                   : out   std_logic_vector(3 downto 0);                     -- mem_dm
+			memory_oct_rzqin                : in    std_logic                     := 'X';             -- oct_rzqin
+			pushbuttons_export              : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
 			sdram_addr                      : out   std_logic_vector(12 downto 0);                    -- addr
 			sdram_ba                        : out   std_logic_vector(1 downto 0);                     -- ba
 			sdram_cas_n                     : out   std_logic;                                        -- cas_n
@@ -76,36 +78,18 @@
 			sdram_dqm                       : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_ras_n                     : out   std_logic;                                        -- ras_n
 			sdram_we_n                      : out   std_logic;                                        -- we_n
-			leds_export                     : out   std_logic_vector(9 downto 0);                     -- export
-			hex0_1_export                   : out   std_logic_vector(7 downto 0);                     -- export
-			hex2_3_export                   : out   std_logic_vector(7 downto 0);                     -- export
-			hex4_5_export                   : out   std_logic_vector(7 downto 0);                     -- export
+			sdram_clk_clk                   : out   std_logic;                                        -- clk
 			slider_switches_export          : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
-			pushbuttons_export              : in    std_logic_vector(3 downto 0)  := (others => 'X')  -- export
+			system_pll_ref_clk_clk          : in    std_logic                     := 'X';             -- clk
+			system_pll_ref_reset_reset      : in    std_logic                     := 'X'              -- reset
 		);
 	end component CPEN391_Computer;
 
 	u0 : component CPEN391_Computer
 		port map (
-			system_pll_ref_clk_clk          => CONNECTED_TO_system_pll_ref_clk_clk,          --   system_pll_ref_clk.clk
-			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset,      -- system_pll_ref_reset.reset
-			sdram_clk_clk                   => CONNECTED_TO_sdram_clk_clk,                   --            sdram_clk.clk
-			memory_mem_a                    => CONNECTED_TO_memory_mem_a,                    --               memory.mem_a
-			memory_mem_ba                   => CONNECTED_TO_memory_mem_ba,                   --                     .mem_ba
-			memory_mem_ck                   => CONNECTED_TO_memory_mem_ck,                   --                     .mem_ck
-			memory_mem_ck_n                 => CONNECTED_TO_memory_mem_ck_n,                 --                     .mem_ck_n
-			memory_mem_cke                  => CONNECTED_TO_memory_mem_cke,                  --                     .mem_cke
-			memory_mem_cs_n                 => CONNECTED_TO_memory_mem_cs_n,                 --                     .mem_cs_n
-			memory_mem_ras_n                => CONNECTED_TO_memory_mem_ras_n,                --                     .mem_ras_n
-			memory_mem_cas_n                => CONNECTED_TO_memory_mem_cas_n,                --                     .mem_cas_n
-			memory_mem_we_n                 => CONNECTED_TO_memory_mem_we_n,                 --                     .mem_we_n
-			memory_mem_reset_n              => CONNECTED_TO_memory_mem_reset_n,              --                     .mem_reset_n
-			memory_mem_dq                   => CONNECTED_TO_memory_mem_dq,                   --                     .mem_dq
-			memory_mem_dqs                  => CONNECTED_TO_memory_mem_dqs,                  --                     .mem_dqs
-			memory_mem_dqs_n                => CONNECTED_TO_memory_mem_dqs_n,                --                     .mem_dqs_n
-			memory_mem_odt                  => CONNECTED_TO_memory_mem_odt,                  --                     .mem_odt
-			memory_mem_dm                   => CONNECTED_TO_memory_mem_dm,                   --                     .mem_dm
-			memory_oct_rzqin                => CONNECTED_TO_memory_oct_rzqin,                --                     .oct_rzqin
+			hex0_1_export                   => CONNECTED_TO_hex0_1_export,                   --               hex0_1.export
+			hex2_3_export                   => CONNECTED_TO_hex2_3_export,                   --               hex2_3.export
+			hex4_5_export                   => CONNECTED_TO_hex4_5_export,                   --               hex4_5.export
 			hps_io_hps_io_emac1_inst_TX_CLK => CONNECTED_TO_hps_io_hps_io_emac1_inst_TX_CLK, --               hps_io.hps_io_emac1_inst_TX_CLK
 			hps_io_hps_io_emac1_inst_TXD0   => CONNECTED_TO_hps_io_hps_io_emac1_inst_TXD0,   --                     .hps_io_emac1_inst_TXD0
 			hps_io_hps_io_emac1_inst_TXD1   => CONNECTED_TO_hps_io_hps_io_emac1_inst_TXD1,   --                     .hps_io_emac1_inst_TXD1
@@ -154,6 +138,24 @@
 			hps_io_hps_io_i2c0_inst_SCL     => CONNECTED_TO_hps_io_hps_io_i2c0_inst_SCL,     --                     .hps_io_i2c0_inst_SCL
 			hps_io_hps_io_i2c1_inst_SDA     => CONNECTED_TO_hps_io_hps_io_i2c1_inst_SDA,     --                     .hps_io_i2c1_inst_SDA
 			hps_io_hps_io_i2c1_inst_SCL     => CONNECTED_TO_hps_io_hps_io_i2c1_inst_SCL,     --                     .hps_io_i2c1_inst_SCL
+			leds_export                     => CONNECTED_TO_leds_export,                     --                 leds.export
+			memory_mem_a                    => CONNECTED_TO_memory_mem_a,                    --               memory.mem_a
+			memory_mem_ba                   => CONNECTED_TO_memory_mem_ba,                   --                     .mem_ba
+			memory_mem_ck                   => CONNECTED_TO_memory_mem_ck,                   --                     .mem_ck
+			memory_mem_ck_n                 => CONNECTED_TO_memory_mem_ck_n,                 --                     .mem_ck_n
+			memory_mem_cke                  => CONNECTED_TO_memory_mem_cke,                  --                     .mem_cke
+			memory_mem_cs_n                 => CONNECTED_TO_memory_mem_cs_n,                 --                     .mem_cs_n
+			memory_mem_ras_n                => CONNECTED_TO_memory_mem_ras_n,                --                     .mem_ras_n
+			memory_mem_cas_n                => CONNECTED_TO_memory_mem_cas_n,                --                     .mem_cas_n
+			memory_mem_we_n                 => CONNECTED_TO_memory_mem_we_n,                 --                     .mem_we_n
+			memory_mem_reset_n              => CONNECTED_TO_memory_mem_reset_n,              --                     .mem_reset_n
+			memory_mem_dq                   => CONNECTED_TO_memory_mem_dq,                   --                     .mem_dq
+			memory_mem_dqs                  => CONNECTED_TO_memory_mem_dqs,                  --                     .mem_dqs
+			memory_mem_dqs_n                => CONNECTED_TO_memory_mem_dqs_n,                --                     .mem_dqs_n
+			memory_mem_odt                  => CONNECTED_TO_memory_mem_odt,                  --                     .mem_odt
+			memory_mem_dm                   => CONNECTED_TO_memory_mem_dm,                   --                     .mem_dm
+			memory_oct_rzqin                => CONNECTED_TO_memory_oct_rzqin,                --                     .oct_rzqin
+			pushbuttons_export              => CONNECTED_TO_pushbuttons_export,              --          pushbuttons.export
 			sdram_addr                      => CONNECTED_TO_sdram_addr,                      --                sdram.addr
 			sdram_ba                        => CONNECTED_TO_sdram_ba,                        --                     .ba
 			sdram_cas_n                     => CONNECTED_TO_sdram_cas_n,                     --                     .cas_n
@@ -163,11 +165,9 @@
 			sdram_dqm                       => CONNECTED_TO_sdram_dqm,                       --                     .dqm
 			sdram_ras_n                     => CONNECTED_TO_sdram_ras_n,                     --                     .ras_n
 			sdram_we_n                      => CONNECTED_TO_sdram_we_n,                      --                     .we_n
-			leds_export                     => CONNECTED_TO_leds_export,                     --                 leds.export
-			hex0_1_export                   => CONNECTED_TO_hex0_1_export,                   --               hex0_1.export
-			hex2_3_export                   => CONNECTED_TO_hex2_3_export,                   --               hex2_3.export
-			hex4_5_export                   => CONNECTED_TO_hex4_5_export,                   --               hex4_5.export
+			sdram_clk_clk                   => CONNECTED_TO_sdram_clk_clk,                   --            sdram_clk.clk
 			slider_switches_export          => CONNECTED_TO_slider_switches_export,          --      slider_switches.export
-			pushbuttons_export              => CONNECTED_TO_pushbuttons_export               --          pushbuttons.export
+			system_pll_ref_clk_clk          => CONNECTED_TO_system_pll_ref_clk_clk,          --   system_pll_ref_clk.clk
+			system_pll_ref_reset_reset      => CONNECTED_TO_system_pll_ref_reset_reset       -- system_pll_ref_reset.reset
 		);
 
