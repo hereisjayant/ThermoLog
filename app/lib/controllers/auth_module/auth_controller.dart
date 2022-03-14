@@ -10,10 +10,9 @@ import 'package:app/ui/base_module/bottom_bar.dart';
 import 'package:app/ui/home_module/home_page.dart';
 import 'package:app/utils/app_images.dart';
 import 'package:app/utils/progress_dialog.dart';
-
-import 'package:firebase_messaging/firebase_messaging.dart'
-as firebase_messaging;
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart'
+    as firebase_messaging;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -28,7 +27,6 @@ class AuthController extends GetxController {
   final UserProvider userProvider = UserProvider();
   final LocalStorageData localStorageData = LocalStorageData.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
-
 
   appuser.User? get checkUser => _checkUser;
   appuser.User? _checkUser;
@@ -53,7 +51,7 @@ class AuthController extends GetxController {
   _getUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var value = prefs.getString('user');
-    return value == "" ? null: appuser.User.fromJson(json.decode(value!));
+    return value == "" ? null : appuser.User.fromJson(json.decode(value!));
   }
 
   Future checkCurrentUser() async {
@@ -62,7 +60,7 @@ class AuthController extends GetxController {
     if (localUser == null) {
       try {
         appuser.User? backendUser =
-        await userProvider.userByEmailOrId(email: user);
+            await userProvider.userByEmailOrId(email: user);
         print(backendUser == null ? "backend is null " : backendUser);
         print(backendUser != null
             ? "user assigned to local"
@@ -91,7 +89,7 @@ class AuthController extends GetxController {
 
   void getNotificationPermission() async {
     firebase_messaging.NotificationSettings settings =
-    await _firebaseMessaging.requestPermission(
+        await _firebaseMessaging.requestPermission(
       alert: true,
       announcement: false,
       badge: true,
@@ -110,7 +108,7 @@ class AuthController extends GetxController {
     );
 
     // const AndroidNotificationChannel channel = AndroidNotificationChannel(
-    //   'com.sidharthgrover.foodbuddy', // id
+    //   'com.cpen391.thermolog', // id
     //   'High Importance Notifications', // title
     //   'This channel is used for important notifications.', // description
     //   importance: Importance.max,
@@ -184,12 +182,14 @@ class AuthController extends GetxController {
           print("token invalid, refreshing");
           appuser.User? user = await _getUserData();
           userProvider.userUpdate(
-              userId: user!.userId!,        lastTime: DateTime.now().millisecondsSinceEpoch,
+              userId: user!.userId!,
+              lastTime: DateTime.now().millisecondsSinceEpoch,
               notificationToken: token);
         } else if (value.notificationToken != token) {
           print("token invalid, refreshing");
           userProvider.userUpdate(
-              userId: value.userId!,         lastTime: DateTime.now().millisecondsSinceEpoch,
+              userId: value.userId!,
+              lastTime: DateTime.now().millisecondsSinceEpoch,
               notificationToken: token);
         }
       });
@@ -208,7 +208,7 @@ class AuthController extends GetxController {
         // var loginRes = await FirebaseAuth.instance
         //     .signInWithEmailAndPassword(email: email, password: password);
         var user = FirebaseAuth.instance.currentUser;
-        await user!.getIdToken() ;
+        await user!.getIdToken();
         return user;
       } else {
         var user = FirebaseAuth.instance.currentUser;
@@ -228,27 +228,29 @@ class AuthController extends GetxController {
   /// Generates a cryptographically secure random nonce, to be included in a
   /// credential request.
   String generateNonce([int length = 32]) {
-    final charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
+    final charset =
+        '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
     final random = Random.secure();
-    return List.generate(length, (_) => charset[random.nextInt(charset.length)]).join();
+    return List.generate(length, (_) => charset[random.nextInt(charset.length)])
+        .join();
   }
 
   Future<User?> googleSignInMethod() async {
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
     print(googleUser);
     GoogleSignInAuthentication googleSignInAuthentication =
-    await googleUser!.authentication;
+        await googleUser!.authentication;
 
     final AuthCredential credential = GoogleAuthProvider.credential(
       idToken: googleSignInAuthentication.idToken,
       accessToken: googleSignInAuthentication.accessToken,
     );
     await auth.signInWithCredential(credential).then((user) async {
-      await signIn(user, method:'GoogleSignIn' );
+      await signIn(user, method: 'GoogleSignIn');
     });
   }
 
-  Future<void> signIn(UserCredential user, {method='GoogleSignIn'}) async {
+  Future<void> signIn(UserCredential user, {method = 'GoogleSignIn'}) async {
     if (user.user == null) {
       Get.snackbar('Login Error', 'Unable to Create User',
           colorText: Colors.white);
@@ -293,10 +295,11 @@ class AuthController extends GetxController {
       //   "Not Applicable"
       // ];
       bool value = await userProvider.userCreate(
-          name: displayName, email: email,notificationToken:  notificationToken!);
+          name: displayName,
+          email: email,
+          notificationToken: notificationToken!);
       if (value) {
-        appuser.User? user =
-        await userProvider.userByEmailOrId(email: email);
+        appuser.User? user = await userProvider.userByEmailOrId(email: email);
         setUser(user!);
       }
     } on Exception catch (e) {
@@ -306,8 +309,7 @@ class AuthController extends GetxController {
 
   Future<void> getCurrentUser(String email) async {
     try {
-      appuser.User? user =
-      await userProvider.userByEmailOrId(email: email);
+      appuser.User? user = await userProvider.userByEmailOrId(email: email);
       await setUser(user!);
     } catch (error) {
       print(error.toString());

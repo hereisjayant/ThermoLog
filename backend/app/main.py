@@ -1,9 +1,11 @@
 from flask import Flask, request
 from flask_cors import CORS
+import urllib 
 
-from pymongo import MongoClient
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
-client = MongoClient("mongodb+srv://Team-35:asd()32q441%D@themallog0.hekpn.mongodb.net/ThermalLogDB?retryWrites=true&w=majority", server_api=ServerApi('1'))
+client = MongoClient("mongodb+srv://Team-35:" + urllib.parse.quote_plus("asd()32q441%D") + "@themallog0.hekpn.mongodb.net/ThermalLogDB?retryWrites=true&w=majority", server_api=ServerApi('1'))
 ### stores are not strictly associated with users 
 ### so the invariant needs to be upheld by the api
 userDb = client.user
@@ -179,7 +181,7 @@ def get_all_stores():
 @app.route('/', methods=['GET'])
 def testing():
     if request.method == 'GET':
-        return ('Hello, Guy Lemieux', 200)
+        return 'Hello'
 
 
 if __name__ == '__main__':
