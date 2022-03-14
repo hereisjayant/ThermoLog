@@ -44,10 +44,10 @@
 
 module qsys_mm_interconnect_0_router_003_default_decode
   #(
-     parameter DEFAULT_CHANNEL = 2,
+     parameter DEFAULT_CHANNEL = 0,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 1 
+               DEFAULT_DESTID = 0 
    )
   (output [104 - 102 : 0] default_destination_id,
    output [7-1 : 0] default_wr_channel,
@@ -138,13 +138,13 @@ module qsys_mm_interconnect_0_router_003
     localparam PAD1 = log2ceil(64'h1008 - 64'h1000); 
     localparam PAD2 = log2ceil(64'h1010 - 64'h1008); 
     localparam PAD3 = log2ceil(64'h2020 - 64'h2000); 
-    localparam PAD4 = log2ceil(64'h2050 - 64'h2040); 
+    localparam PAD4 = log2ceil(64'h2080 - 64'h2040); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 64'h2050;
+    localparam ADDR_RANGE = 64'h2080;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -216,7 +216,7 @@ module qsys_mm_interconnect_0_router_003
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
-    // ( 0x2040 .. 0x2050 )
+    // ( 0x2040 .. 0x2080 )
     if ( {address[RG:PAD4],{PAD4{1'b0}}} == 14'h2040   ) begin
             src_channel = 7'b00001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;

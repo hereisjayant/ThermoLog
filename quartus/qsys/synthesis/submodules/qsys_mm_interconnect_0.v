@@ -91,7 +91,7 @@ module qsys_mm_interconnect_0 (
 		output wire        JTAG_To_FPGA_Bridge_master_readdatavalid,                              //                                                                .readdatavalid
 		input  wire        JTAG_To_FPGA_Bridge_master_write,                                      //                                                                .write
 		input  wire [31:0] JTAG_To_FPGA_Bridge_master_writedata,                                  //                                                                .writedata
-		output wire [1:0]  Accelerator_avalon_slave_0_address,                                    //                                      Accelerator_avalon_slave_0.address
+		output wire [3:0]  Accelerator_avalon_slave_0_address,                                    //                                      Accelerator_avalon_slave_0.address
 		output wire        Accelerator_avalon_slave_0_write,                                      //                                                                .write
 		output wire        Accelerator_avalon_slave_0_read,                                       //                                                                .read
 		input  wire [31:0] Accelerator_avalon_slave_0_readdata,                                   //                                                                .readdata
@@ -1150,7 +1150,7 @@ module qsys_mm_interconnect_0 (
 	);
 
 	altera_merlin_slave_translator #(
-		.AV_ADDRESS_W                   (2),
+		.AV_ADDRESS_W                   (4),
 		.AV_DATA_W                      (32),
 		.UAV_DATA_W                     (32),
 		.AV_BURSTCOUNT_W                (1),

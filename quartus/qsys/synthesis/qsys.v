@@ -181,7 +181,7 @@ module qsys (
 	wire  [31:0] mm_interconnect_0_onchip_sram_s1_writedata;                         // mm_interconnect_0:Onchip_SRAM_s1_writedata -> Onchip_SRAM:writedata
 	wire         mm_interconnect_0_onchip_sram_s1_clken;                             // mm_interconnect_0:Onchip_SRAM_s1_clken -> Onchip_SRAM:clken
 	wire  [31:0] mm_interconnect_0_accelerator_avalon_slave_0_readdata;              // Accelerator:readdata -> mm_interconnect_0:Accelerator_avalon_slave_0_readdata
-	wire   [1:0] mm_interconnect_0_accelerator_avalon_slave_0_address;               // mm_interconnect_0:Accelerator_avalon_slave_0_address -> Accelerator:addr
+	wire   [3:0] mm_interconnect_0_accelerator_avalon_slave_0_address;               // mm_interconnect_0:Accelerator_avalon_slave_0_address -> Accelerator:addr
 	wire         mm_interconnect_0_accelerator_avalon_slave_0_read;                  // mm_interconnect_0:Accelerator_avalon_slave_0_read -> Accelerator:rd_en
 	wire         mm_interconnect_0_accelerator_avalon_slave_0_write;                 // mm_interconnect_0:Accelerator_avalon_slave_0_write -> Accelerator:wr_en
 	wire  [31:0] mm_interconnect_0_accelerator_avalon_slave_0_writedata;             // mm_interconnect_0:Accelerator_avalon_slave_0_writedata -> Accelerator:writedata

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="qsys" kind="qsys" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2022.03.13.19:41:16 -->
+ <!-- 2022.03.14.00:48:17 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1647225675</value>
+  <value>1647244096</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -16560,7 +16560,7 @@ parameters are a RESULT of the module parameters. -->
     <slaveName>avalon_slave_0</slaveName>
     <name>Accelerator.avalon_slave_0</name>
     <baseAddress>8256</baseAddress>
-    <span>16</span>
+    <span>64</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -43356,7 +43356,7 @@ parameters are a RESULT of the module parameters. -->
     <slaveName>avalon_slave_0</slaveName>
     <name>Accelerator.avalon_slave_0</name>
     <baseAddress>8256</baseAddress>
-    <span>16</span>
+    <span>64</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -44931,7 +44931,7 @@ parameters are a RESULT of the module parameters. -->
     <slaveName>avalon_slave_0</slaveName>
     <name>Accelerator.avalon_slave_0</name>
     <baseAddress>4280295488</baseAddress>
-    <span>16</span>
+    <span>64</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -45810,7 +45810,7 @@ parameters are a RESULT of the module parameters. -->
     <slaveName>avalon_slave_0</slaveName>
     <name>Accelerator.avalon_slave_0</name>
     <baseAddress>4280295488</baseAddress>
-    <span>16</span>
+    <span>64</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -73651,7 +73651,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="addressSpan">
     <type>java.math.BigInteger</type>
-    <value>16</value>
+    <value>64</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -73950,7 +73950,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>addr</name>
     <direction>Input</direction>
-    <width>2</width>
+    <width>4</width>
     <role>address</role>
    </port>
    <port>
@@ -75272,7 +75272,7 @@ parameters are a RESULT of the module parameters. -->
     <slaveName>avalon_slave_0</slaveName>
     <name>Accelerator.avalon_slave_0</name>
     <baseAddress>4280295488</baseAddress>
-    <span>16</span>
+    <span>64</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
