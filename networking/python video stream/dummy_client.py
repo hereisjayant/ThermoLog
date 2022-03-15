@@ -2,7 +2,6 @@ import io
 import socket
 import struct
 import time
-import picamera
 
 client_socket = socket.socket()
 
@@ -11,12 +10,6 @@ client_socket.connect(('206.87.235.152', 8000))  # ADD IP HERE
 # Make a file-like object out of the connection
 connection = client_socket.makefile('wb')
 try:
-    camera = picamera.PiCamera()
-    camera.vflip = True
-    camera.resolution = (500, 480)
-    # Start a preview and let the camera warm up for 2 seconds
-    camera.start_preview()
-    time.sleep(2)
 
     # Note the start time and construct a stream to hold image data
     # temporarily (we could write it directly to connection but in thisa

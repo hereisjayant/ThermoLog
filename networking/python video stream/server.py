@@ -5,8 +5,10 @@ from PIL import Image
 import matplotlib.pyplot as pl
 
 server_socket = socket.socket()
-server_socket.bind(('192.168.1.159', 8000))
+server_socket.bind(('206.87.235.152', 8000))
 server_socket.listen(0)
+
+print("starts listening")
 
 # Accept a single connection and make a file-like object out of it
 connection = server_socket.accept()[0].makefile('rb')
