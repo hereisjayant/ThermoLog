@@ -1,4 +1,4 @@
-import 'package:app/ui/base_module/bottom_bar.dart';
+import 'package:app/ui/home_module/home_page.dart';
 import 'package:app/utils/app_colors.dart';
 import 'package:app/utils/base_class.dart';
 import 'package:app/utils/custom_label.dart';
@@ -6,7 +6,6 @@ import 'package:app/utils/rounded_edge_button.dart';
 import 'package:app/utils/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-
 
 class AccountSuccessPage extends StatelessWidget with BaseClass {
   @override
@@ -70,7 +69,7 @@ class AccountSuccessPage extends StatelessWidget with BaseClass {
                 bottomMargin: 80,
                 onPressed: (value) {
                   pushReplaceAndClearStack(
-                      context: context, destination: BottomBar());
+                      context: context, destination: HomePage());
                 },
                 context: context),
           ],

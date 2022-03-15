@@ -6,7 +6,6 @@ import 'package:app/controllers/base_module/local_storage_data.dart';
 import 'package:app/models/user.dart' as appuser;
 import 'package:app/providers/user.dart';
 import 'package:app/ui/auth_module/create_account_page.dart';
-import 'package:app/ui/base_module/bottom_bar.dart';
 import 'package:app/ui/home_module/home_page.dart';
 import 'package:app/utils/app_images.dart';
 import 'package:app/utils/progress_dialog.dart';
@@ -260,7 +259,7 @@ class AuthController extends GetxController {
         ProgressDialog();
         print("old user");
         // await getCurrentUser(user.user!.email!);
-        Get.offAll(() => BottomBar());
+        Get.offAll(() => HomePage());
       } else {
         print("new user");
         await createUser("User", user.user!.email!);
