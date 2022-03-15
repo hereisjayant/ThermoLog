@@ -8,8 +8,8 @@ from pymongo.server_api import ServerApi
 client = MongoClient("mongodb+srv://Team-35:" + urllib.parse.quote_plus("asd()32q441%D") + "@themallog0.hekpn.mongodb.net/ThermalLogDB?retryWrites=true&w=majority", server_api=ServerApi('1'))
 ### stores are not strictly associated with users 
 ### so the invariant needs to be upheld by the api
-userDb = client.user
-storeDb = client.store
+userDb = client.prod.users
+storeDb = client.prod.stores
 
 app = Flask(__name__)
 CORS(app)
