@@ -1,3 +1,4 @@
+import 'package:app/controllers/auth_module/auth_controller.dart';
 import 'package:app/controllers/home_module/home_page.dart';
 import 'package:app/utils/app_colors.dart';
 import 'package:app/utils/base_class.dart';
@@ -22,6 +23,15 @@ class HomePage extends StatelessWidget with BaseClass {
             style: GoogleFonts.poppins(color: darkPrimary, fontSize: 30),
           ),
           centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: () {
+                print("icon clicked");
+                Get.find<AuthController>().signOut();
+              },
+            ),
+          ],
         ),
         body: RefreshIndicator(
           color: lightAccent,
