@@ -4,7 +4,7 @@ import urllib
 from flask import jsonify
 from bson import json_util
 import json
-
+from bson.objectid import ObjectId
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
@@ -24,13 +24,13 @@ CORS(app)
 async def delete_user(userId):
     # delete stores first
     try:
-        user_stores = userDb.find({'_id': userId})["storeIds"]
+        user_stores = userDb.find({'_id': ObjectId(userId)})["storeIds"]
         for storeId in user_stores:
-            result = storeDb.delete_one({"_id": storeId})
+            result = storeDb.delete_one({"_id": ObjectId(storeId)})
             if not result:
                 return ('user not deleted', 417)
 
-        result = userDb.delete_one({"_id": userId})
+        result = userDb.delete_one({"_id": ObjectId(userId)})
         return (result, 200)
     except Exception as e:
         return ("There was an error deleting the user" + str(e), 417)
@@ -41,16 +41,16 @@ async def delete_user(userId):
 async def update_user(userId):
     try:
         new_user = request.get_json()
-        result = userDb.replace_one({"_id": userId}, new_user)
+        result = userDb.replace_one({"_id": ObjectId(userId)}, new_user)
         if result:
-            return (new_user, 200)
+            return (jsonify(json.loads(json_util.dumps(new_user))), 200)
         return ("there was an error updating the user", 417)
     except Exception as e:
         return ("There was an error updating the user" + str(e), 417)
     
 
 @app.route('/user/byEmailOrId', methods=['GET'])
-def find_user():
+def find_user_by_email_or_id():
     try:
         email = request.args.get('email')
         userId = request.args.get('userId')
@@ -58,15 +58,25 @@ def find_user():
         if email:
             user = userDb.find_one({"email": email })
             if user:
-                return (user, 200)
+                return (jsonify(json.loads(json_util.dumps(user))), 200)
             return ('user not found', 400)
         elif userId:
-            user = userDb.find_one({"_id": userId })
+            user = userDb.find_one({"_id": ObjectId(userId) })
             if user:
-                return (user, 200)
+                return (jsonify(json.loads(json_util.dumps(user))), 200)
             return ('user not found', 400)
         else:
             return ("invalid query", 400)
+    except Exception as e:
+        return ("There was an error querying the user" + str(e), 417)    
+
+@app.route('/user/<userId>', methods=['GET'])
+def find_user(userId):
+    try:
+        user = userDb.find_one({"_id": ObjectId(userId) })
+        if user:
+            return (jsonify(json.loads(json_util.dumps(user))), 200)
+        return ('user not found', 400)
     except Exception as e:
         return ("There was an error querying the user" + str(e), 417)
 
@@ -117,7 +127,7 @@ def get_all_users():
 @app.route('/store/<storeId>/deleteStore', methods=['DELETE'])
 async def delete_store(storeId):
     try:
-        result = storeDb.delete_one({"_id": storeId})
+        result = storeDb.delete_one({"_id": ObjectId(storeId)})
         return (result, 200)
     except Exception as e:
         return ("There was an error deleting the store" + str(e), 417)
@@ -127,9 +137,9 @@ async def delete_store(storeId):
 async def update_store(storeId):
     try:
         new_store = request.get_json()
-        result = storeDb.replace_one({"_id": storeId}, new_store)
+        result = storeDb.replace_one({"_id": ObjectId(storeId)}, new_store)
         if result:
-            return (new_store, 200)
+            return (jsonify(json.loads(json_util.dumps(new_store))), 200)
         return ("there was an error updating the store", 417)
     except Exception as e:
         return ("There was an error updating the store" + str(e), 417)
@@ -139,9 +149,9 @@ async def update_store(storeId):
 def find_store(storeId):
     try:
         if storeId:
-            store = storeDb.find_one({"_id": storeId})
+            store = storeDb.find_one({"_id": ObjectId(storeId)})
             if store:
-                return (store, 200)
+                return (jsonify(json.loads(json_util.dumps(store))), 200)
             return ('store not found', 400)
         else:
             return ("invalid query", 400)
