@@ -1,6 +1,9 @@
 from flask import Flask, request
 from flask_cors import CORS
 import urllib 
+from flask import jsonify
+from bson import json_util
+import json
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
@@ -30,7 +33,7 @@ async def delete_user(userId):
         result = userDb.delete_one({"_id": userId})
         return (result, 200)
     except Exception as e:
-        return ("There was an error deleting the user" + e, 417)
+        return ("There was an error deleting the user" + str(e), 417)
 
 
 
@@ -43,7 +46,7 @@ async def update_user(userId):
             return (new_user, 200)
         return ("there was an error updating the user", 417)
     except Exception as e:
-        return ("There was an error updating the user" + e, 417)
+        return ("There was an error updating the user" + str(e), 417)
     
 
 @app.route('/user/byEmailOrId', methods=['GET'])
@@ -65,7 +68,7 @@ def find_user():
         else:
             return ("invalid query", 400)
     except Exception as e:
-        return ("There was an error querying the user" + e, 417)
+        return ("There was an error querying the user" + str(e), 417)
 
 
 @app.route('/user/create', methods=['GET', 'POST'])
@@ -85,7 +88,7 @@ def create_user():
             userDb.insert_one(data)
             return ('user created', 200)
         except Exception as e:
-            return ("There was an error creating the user" + e, 417)
+            return ("There was an error creating the user" + str(e), 417)
         # dict(  # TODO: id should be from database
         #     phone=data["phone"] if data["phone"] is not None else "6048186637",
         #     photoUrl=data["photoUrl"] if data["photoUrl"] is not None else "https://www.google.com/url?sa=i&url=https%3A%2F%2Fallthings.how%2Fhow-to-change-your-profile-picture-on-google-meet%2F&psig=AOvVaw2VMU2VXIMub_LScgx7S8zb&ust=1645035637738000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCpvbupgvYCFQAAAAAdAAAAABAD",
@@ -100,10 +103,11 @@ def create_user():
 @app.route('/user/getAll', methods=['GET'])
 def get_all_users():
     try:
-        userList = userDb.find({})
-        return (userList, 200)
+        userList = [doc for doc in userDb.find()]
+        print(type(userList))
+        return (jsonify(json.loads(json_util.dumps(userList))), 200)
     except Exception as e:
-        return ("There was an error pulling all the users" + e, 417)
+        return ("There was an error pulling all the users" + str(e), 417)
 
 ############## store endpoints ################
 
@@ -116,7 +120,7 @@ async def delete_store(storeId):
         result = storeDb.delete_one({"_id": storeId})
         return (result, 200)
     except Exception as e:
-        return ("There was an error deleting the store" + e, 417)
+        return ("There was an error deleting the store" + str(e), 417)
 
 
 @app.route('/store/<storeId>/update', methods=['PUT'])
@@ -128,7 +132,7 @@ async def update_store(storeId):
             return (new_store, 200)
         return ("there was an error updating the store", 417)
     except Exception as e:
-        return ("There was an error updating the store" + e, 417)
+        return ("There was an error updating the store" + str(e), 417)
 
 
 @app.route('/store/<storeId>/byId', methods=['GET'])
@@ -142,7 +146,7 @@ def find_store(storeId):
         else:
             return ("invalid query", 400)
     except Exception as e:
-        return ("There was an error querying the store" + e, 417)
+        return ("There was an error querying the store" + str(e), 417)
 
 
 @app.route('/store/create', methods=['GET', 'POST'])
@@ -155,7 +159,7 @@ def create_store():
             storeDb.insert_one(data)
             return ('store created', 200)
         except Exception as e:
-            return ("There was an error creating the store" + e, 417)
+            return ("There was an error creating the store" + str(e), 417)
         # dict(  # TODO: id should be from database
         #     capacity=data["capacity"],
         #     customerCount=data["customerCount"],
@@ -169,10 +173,12 @@ def create_store():
 @app.route('/store/getAll', methods=['GET'])
 def get_all_stores():
     try:
-        storeList = storeDb.find({})
-        return (storeList, 200)
+        storeList = [doc for doc in storeDb.find()]
+       
+        print("GET logger")
+        return (jsonify(json.loads(json_util.dumps(storeList))), 200)
     except Exception as e:
-        return ("There was an error pulling all the stores" + e, 417)
+        return ("There was an error pulling all the stores" + str(e), 417)
 
 ############## store endpoints ################
 
@@ -183,7 +189,7 @@ def testing():
     print("Hey logger")
     if request.method == 'GET':
         print("GET logger")
-        return ('Hello', 200)
+        return ('Hello Guy Lemieux', 200)
 
 
 if __name__ == '__main__':
