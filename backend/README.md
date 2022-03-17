@@ -1,7 +1,7 @@
 ## To Run it Locally
 If you are running this the first time, do
-`python3 -m venv env`   then
-` python3 -m pip install -r requirements.txt`
+`python -m venv env`   then activate env, then
+`python -m pip install -r requirements.txt`
 
 every attempts thereafter
 on windows, do
@@ -17,6 +17,23 @@ on windows, do
 `./env/Scripts/deactivate`
 on other OS, do
 `source env/bin/deactivate`
+
+# Development and Debugging 
+Follow this to run the server in debugging mode and have hot refresh
+These command applies to powershell terminals 
+first set the environmental variables:
+
+activate virtual environment as mentioned above 
+
+cd into the app directroy in backend then 
+`$env:FLASK_ENV = "development"`
+`$env:FLASK_APP = "main"`
+
+you can check that the variables are set properly by 
+`gci env:`
+
+finally, do
+`flask run`
 
 # Deployment
 It is now deployed at 

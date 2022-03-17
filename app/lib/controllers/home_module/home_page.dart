@@ -10,7 +10,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePageController extends GetxController {
   final BuildContext? context;
@@ -51,8 +50,8 @@ class HomePageController extends GetxController {
     });
     update();
     _storeList = [];
+    await nullUserCheck(); // we load as much as possible beforehand assuming the user is probably authenticated
     await getCurrentUser();
-    nullUserCheck(); // we load as much as possible beforehand assuming the user is probably authenticated
     getStores();
   }
 
