@@ -6,7 +6,7 @@ import time
 start_time = time.time()
 
 # define image size
-width = 640
+width = 500
 height = 480
 depth = 3
 

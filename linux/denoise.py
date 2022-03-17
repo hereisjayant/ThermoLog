@@ -29,7 +29,7 @@ compute_pixel.argtypes = [
 accelerator.init_hw();
 
 # define image size
-width = 640
+width = 500
 height = 480
 depth = 3
 
