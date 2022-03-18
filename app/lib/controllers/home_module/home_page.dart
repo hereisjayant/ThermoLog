@@ -65,7 +65,7 @@ class HomePageController extends GetxController {
     appuser.User? value = await localStorageData.getUser();
     if (value == null) {
       _user = await userProvider.userByEmailOrId(
-          email: Get.find<AuthController>().user);
+          email: Get.find<AuthController>().user ?? "priahi12@gmail.com");
     } else {
       _user = value;
     }

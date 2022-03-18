@@ -6,11 +6,12 @@ class ApiConstants {
   static const CACHED_USER_DATA = 'CACHED_USER_DATA';
 
   // developer url
-  static String developerBaseUrl = "heroku-391.herokuapp.com";
+  static String developerBaseUrl =
+      "http://localhost:5000"; //"heroku-391.herokuapp.com";
   static String developerPath = "";
 
   // local url
-  // static String localBaseUrl = "http://localhost:8080";
+  // static String localBaseUrl = "http://localhost:5000";
   // static String localPath = "/dev/api/";
 
   // header settings
