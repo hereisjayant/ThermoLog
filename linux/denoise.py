@@ -1,10 +1,8 @@
 import ctypes
+from numpy.ctypeslib import ndpointer
 from PIL import Image
 import numpy
 import time
-
-# time program run time
-start_time = time.time()
 
 # open hardware accelerator shared object
 so_file = "./accelerator.so"
@@ -28,42 +26,60 @@ compute_pixel.argtypes = [
 # initialize hardware accelerator memory mapping
 accelerator.init_hw();
 
-# define image size
-width = 500
-height = 480
-depth = 3
+# time program run time
+start_time = time.time()
 
-# read png to array
-img = Image.open("noise.png")
-arr = numpy.array(img.getdata())
+###################################################################
 
-# saved processed image to 3d array
-result = numpy.zeros((height, width, depth), dtype=numpy.uint8)
+width = 8
+height = 8
 
-for i in range(1, height - 1):
-    curr_row = i * width
-    prev_row = curr_row - width
-    next_row = curr_row + width
-    for j in range(1, width - 1):
+values = [
+    50, 0, 50, 50, 0, 50, 50, 50, 
+    50, 50, 0, 50, 50, 0, 50, 50, 
+    50, 50, 50, 0, 50, 50, 0, 50, 
+    50, 0, 50, 50, 0, 50, 50, 50, 
+    50, 50, 0, 50, 50, 0, 50, 50, 
+    50, 50, 50, 0, 50, 50, 0, 50, 
+    50, 0, 50, 50, 0, 50, 50, 50, 
+    50, 50, 0, 50, 50, 0, 50, 50
+]
+
+arr = numpy.array(values, dtype=numpy.int32).reshape((height, width))
+result = numpy.zeros((height, width), dtype=numpy.uint32)
+
+print(arr)
+
+for i in range(height):
+    for j in range(width):
+
+        curr_row = i
+        if i - 1 < 0: prev_row = i
+        else: prev_row = i - 1
+        if i + 1 >= height: next_row = i
+        else: next_row = i + 1
+
         curr_col = j
-        prev_col = j - 1
-        next_col = j + 1
-        for d in range(depth):
-            result[i][j][d] = compute_pixel(
-                    arr[prev_row + prev_col][d],
-                    arr[prev_row + curr_col][d],
-                    arr[prev_row + next_col][d],
-                    arr[curr_row + prev_col][d],
-                    arr[curr_row + curr_col][d],
-                    arr[curr_row + next_col][d],
-                    arr[next_row + prev_col][d],
-                    arr[next_row + curr_col][d],
-                    arr[next_row + next_col][d]
-                )
+        if j - 1 < 0: prev_col = j
+        else: prev_col = j - 1
+        if j + 1 >= height: next_col = j
+        else: next_col = j + 1
 
-# write processed image to png
-result_img = Image.fromarray(result, "RGB")
-result_img.save("result.png")
+        result[i][j] = compute_pixel(
+            arr[prev_row][prev_col],
+            arr[prev_row][curr_col],
+            arr[prev_row][next_col],
+            arr[curr_row][prev_col],
+            arr[curr_row][curr_col],
+            arr[curr_row][next_col],
+            arr[next_row][prev_col],
+            arr[next_row][curr_col],
+            arr[next_row][next_col]
+        )
+
+print(result)
+
+###################################################################
 
 # print timing
 print("--- Done in %s seconds ---" % (time.time() - start_time))
