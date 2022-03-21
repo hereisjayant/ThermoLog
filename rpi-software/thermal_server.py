@@ -1,6 +1,6 @@
 from socket import *
+import numpy as np
 import time
-import numpy
 
 height = 8
 width = 8
@@ -19,7 +19,7 @@ def create_2d_array():
         50, 50, 0, 50, 50, 0, 50, 50
     ]
 
-    return numpy.array(values, dtype=numpy.uint32).reshape((height, width))
+    return np.array(values, dtype=np.uint32).reshape((height, width))
 
 # define server port number
 serverName = "0.0.0.0"
@@ -55,7 +55,7 @@ while True:
     msg = clientSocket.recv(1024)
 
     # decode data
-    result = numpy.frombuffer(msg, dtype=numpy.uint32).reshape((height, width))
+    result = np.frombuffer(msg, dtype=np.uint32).reshape((height, width))
 
     print(result)
 

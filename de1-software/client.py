@@ -1,9 +1,6 @@
 import ctypes
-from numpy.ctypeslib import ndpointer
-from PIL import Image
-import numpy
 from socket import *
-import pickle
+import numpy as np
 
 height = 8
 width = 8
@@ -30,7 +27,7 @@ compute_pixel.argtypes = [
 def denoise(arr):
 
     # create array to store result
-    result = numpy.zeros((height, width), dtype=numpy.uint32)
+    result = np.zeros((height, width), dtype=np.uint32)
 
     # initialize hardware accelerator
     accelerator.init_hw();
@@ -90,7 +87,7 @@ def main():
         print("Received data from server")
 
         # decode data
-        arr = numpy.frombuffer(msg, dtype=numpy.uint32).reshape((height, width))
+        arr = np.frombuffer(msg, dtype=np.uint32).reshape((height, width))
 
         print("Decoded data from server")
 
