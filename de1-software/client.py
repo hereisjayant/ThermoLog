@@ -30,7 +30,7 @@ def denoise(arr):
     result = np.zeros((height, width), dtype=np.uint32)
 
     # initialize hardware accelerator
-    accelerator.init_hw();
+    accelerator.init_hw()
 
     # scan through image to apply the accelerator
     for i in range(height):
@@ -61,7 +61,7 @@ def denoise(arr):
             )
 
     # release hardware accelerator
-    accelerator.close_hw();
+    accelerator.close_hw()
 
     return result
 
