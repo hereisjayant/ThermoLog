@@ -68,7 +68,7 @@ def denoise(arr):
 def main():
 
     # define server port number
-    serverName = gethostbyname("Ethans-MacBook-Pro.local")
+    serverName = "192.168.0.10"
     serverPort = 12000
 
     # creates client TCP socket
