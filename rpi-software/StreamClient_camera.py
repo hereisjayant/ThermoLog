@@ -4,7 +4,7 @@ import picamera
 import struct
 
 client_socket = socket.socket()
-IP = '169.254.248.0'
+IP = '206.87.239.128'
 port = 8000
 client_socket.connect((IP, port))
 
