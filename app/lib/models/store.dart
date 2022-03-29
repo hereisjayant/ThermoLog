@@ -6,23 +6,26 @@ class Store {
   String? storeId;
   String? name;
   List<String>? liveStreamIds;
+  String? streamUrl;
 
-  Store(
-      { this.capacity,
-        this.customerCount,
-        this.isSafe,
-        this.temperatures,
-        this.storeId,
-        this.name,
-        this.liveStreamIds,
-      });
+  Store({
+    this.capacity,
+    this.customerCount,
+    this.isSafe,
+    this.temperatures,
+    this.storeId,
+    this.name,
+    this.liveStreamIds,
+    this.streamUrl,
+  });
 
   Store.fromJson(Map<String, dynamic> json) {
     capacity = json["capacity"];
     customerCount = json["customerCount"];
     isSafe = json["isSafe"];
-    storeId = json["_id"];
+    storeId = json["_id"]["\$oid"];
     name = json["name"];
+    streamUrl = json["streamUrl"];
     if (json["liveStreamIds"] != null) {
       liveStreamIds = [];
       json["liveStreamIds"].forEach((v) {
@@ -31,7 +34,8 @@ class Store {
     }
     temperatures = [];
     json["temperatures"].forEach((v) {
-      temperatures?.add(v);
+      double temp = v.toDouble();
+      temperatures?.add(temp);
     });
   }
 
@@ -42,6 +46,7 @@ class Store {
     map["isSafe"] = isSafe;
     map["_id"] = storeId;
     map["name"] = name;
+    map["streamUrl"] = streamUrl;
     if (liveStreamIds != null) {
       map["liveStreamIds"] = liveStreamIds?.map((v) => v.toString()).toList();
     } else {
@@ -55,4 +60,3 @@ class Store {
     return map;
   }
 }
-

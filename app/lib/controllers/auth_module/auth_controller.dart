@@ -273,6 +273,8 @@ class AuthController extends GetxController {
       await _googleSignIn.signOut();
       return await auth.signOut();
     });
+    FirebaseAuth.instance.signOut();
+    await localStorageData.deleteUser();
   }
 
   Future<bool> authenticateUser(String? email) async {

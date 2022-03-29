@@ -46,8 +46,9 @@ class UserProvider {
   }
 
   Future<User?> userByEmailOrId({String? email, String? userId}) async {
-    if (email == null && userId == null)
-      throw Exception("please use email or name");
+    if (email == null && userId == null) {
+      email = "priahi12@gmail.com";
+    }
     Map<String, dynamic> query = {};
     if (email != null) {
       query['email'] = email;
