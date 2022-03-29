@@ -40,10 +40,12 @@ async def delete_user(userId):
 @app.route('/user/<userId>/update', methods=['PUT'])
 async def update_user(userId):
     try:
-        new_user = request.get_json()
-        result = userDb.replace_one({"_id": ObjectId(userId)}, new_user)
+        user = userDb.find_one({"_id": ObjectId(userId)})
+        for key in request.get_json():
+            user[key] = request.json[key]
+        result = userDb.replace_one({"_id": ObjectId(userId)}, user)
         if result:
-            return (jsonify(json.loads(json_util.dumps(new_user))), 200)
+            return (jsonify(json.loads(json_util.dumps(user))), 200)
         return ("there was an error updating the user", 417)
     except Exception as e:
         return ("There was an error updating the user" + str(e), 417)
@@ -136,10 +138,12 @@ async def delete_store(storeId):
 @app.route('/store/<storeId>/update', methods=['PUT'])
 async def update_store(storeId):
     try:
-        new_store = request.get_json()
-        result = storeDb.replace_one({"_id": ObjectId(storeId)}, new_store)
+        store = storeDb.find_one({"_id": ObjectId(storeId)})
+        for key in request.get_json():
+            store[key] = request.json[key]
+        result = storeDb.replace_one({"_id": ObjectId(storeId)}, store)
         if result:
-            return (jsonify(json.loads(json_util.dumps(new_store))), 200)
+            return (jsonify(json.loads(json_util.dumps(store))), 200)
         return ("there was an error updating the store", 417)
     except Exception as e:
         return ("There was an error updating the store" + str(e), 417)
