@@ -181,7 +181,7 @@ def testing():
     print("Hey logger")
     if request.method == 'GET':
         print("GET logger")
-        return ('Hello Guy Lemieux', 200)
+        return ('Hello Guy Lemieux x2', 200)
 
 
 if __name__ == '__main__':
