@@ -50,13 +50,13 @@ The DE1-SoC will receive and denoise the thermal gate array data and send them b
 The Raspberry Pi will then use OpenCV to detect high temperatures in streams before sending the stream along with statistics to the cloud component. 
 
 ### FPGA Top-Level Schematics
-![foga-top-level](docs/schematics/fpga-top-level.png)
+<img src="docs/schematics/fpga-top-level.png" alt="fpga-top-level"/>
 
 ### Qsys System Schematics
-![qsys-system](docs/schematics/qsys-system.png)
+<img src="docs/schematics/qsys-system.png" alt="qsys-system"/>
 
 ### Hardware Accelerator Schematics
-![hardware-accelerator](docs/schematics/hardware-accelerator.png)
+<img src="docs/schematics/hardware-accelerator.png" alt="hardware-accelerator"/>
 
 ### IR Sensor Circuit
 <img src="docs/schematics/ir-sensor-circuit.png" alt="ir-sensor-vircuit" width="200"/>
