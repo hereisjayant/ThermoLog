@@ -9,16 +9,16 @@ class User {
   String? email;
   String? name;
 
-  User(
-      { this.phone,
-        this.photoUrl,
-        this.lastTime,
-        this.safeTime,
-        this.userId,
-        this.notificationToken,
-        this.email,
-        this.name,
-        });
+  User({
+    this.phone,
+    this.photoUrl,
+    this.lastTime,
+    this.safeTime,
+    this.userId,
+    this.notificationToken,
+    this.email,
+    this.name,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     phone = json["phone"];
@@ -28,10 +28,10 @@ class User {
     if (json["storeIds"] != null) {
       storeIds = [];
       json["storeIds"].forEach((v) {
-        storeIds?.add(v);
+        storeIds?.add(v["\$oid"]);
       });
     }
-    userId = json["_id"];
+    userId = json["_id"]["\$oid"];
     notificationToken = json["notificationToken"];
     email = json["email"];
     name = json["name"];

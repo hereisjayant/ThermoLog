@@ -7,7 +7,7 @@ import matplotlib.pyplot as pl
 server_socket = socket.socket()
 # make sure server and RPi are on the same subnet
 
-IP = '169.254.248.0'
+IP = '206.87.239.128'
 port = 8000
 server_socket.bind((IP, port))
 server_socket.listen(0)

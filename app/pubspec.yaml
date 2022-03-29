@@ -47,6 +47,10 @@ dependencies:
   firebase_storage: ^10.1.0
   image: ^3.0.2
   image_picker: ^0.8.0+4
+  neat_periodic_task: ^2.0.0
+  webview_flutter: ^3.0.1
+  numberpicker: ^2.1.1
+  sliding_up_panel: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
