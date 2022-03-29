@@ -33,6 +33,7 @@ int init_hw(void) {
     led_ptr = (int *) (HW_virtual + LED_BASE);
     acc_ptr = (int *) (HW_virtual + ACC_BASE);
 
+    // turn on LED indicators
     *(led_ptr) = 1023;
 
     return 0;
@@ -40,6 +41,8 @@ int init_hw(void) {
 
 // Release the hardware mapping
 int close_hw(void) {
+
+    // turn off LED indicators
     *(led_ptr) = 0;
 
     unmap_physical (HW_virtual, HW_SPAN); // release the physical-memory mapping
@@ -48,7 +51,7 @@ int close_hw(void) {
     return 0;
 }
 
-// Uses the hardware computational accelerator to computer pixel value
+// Uses the hardware accelerator to enhance image
 int compute_pixel(int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {
     *(acc_ptr + 1) = p1;
     *(acc_ptr + 2) = p2;
