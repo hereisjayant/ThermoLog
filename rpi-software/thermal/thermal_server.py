@@ -1,10 +1,17 @@
 from socket import *
 import numpy as np
 import time
+import busio
+import board
+import adafruit_amg88xx
+
+i2c = busio.I2C(board.SCL, board.SDA)
+amg = adafruit_amg88xx.AMG88XX(i2c)
 
 height = 8
 width = 8
 
+"""
 # Just a test function for creating 2d arr
 def create_2d_array():
 
@@ -20,6 +27,7 @@ def create_2d_array():
     ]
 
     return np.array(values, dtype=np.uint32).reshape((height, width))
+"""
 
 # define server port number
 serverName = "0.0.0.0"
@@ -38,13 +46,13 @@ serverSocket.listen(1)
 print("The server is ready to receive at: " + gethostname())
 
 # accept incoming connection
-clientSocket, addr = serverSocket.accept()
+#clientSocket, addr = serverSocket.accept()
 
-print("Connection from: " + str(addr))
+#print("Connection from: " + str(addr))
 
 while True:
 
-    arr = create_2d_array()
+    arr = amg.pixels
 
     print(arr)
 
