@@ -21,7 +21,7 @@ CORS(app)
 
 
 @app.route('/user/<userId>', methods=['GET', 'PUT', 'DELETE'])
-async def delete_user(userId):
+def delete_user(userId):
     # delete stores first
     if request.method == 'GET':
         try:
@@ -115,7 +115,7 @@ def create_user():
 ############## store endpoints ################
 
 @app.route('/store/<storeId>', methods=['PUT', 'GET', 'DELETE'])
-async def store(storeId):
+def store(storeId):
     if request.method == 'GET':
         try:
             if storeId:
