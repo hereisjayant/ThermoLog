@@ -16,7 +16,7 @@ We propose a hardware system that can detect the number of people going in and o
 
 ### How
 
-- A camera and a thermal sensor will be attached to a Raspberry Pi to collect images for OpenCV in order to identify people who pass through the field of view. The DE1-SoC will be used to act as an accelerator for image de-noising and sharpening before the data is fed through OpenCV. A cross-platform mobile application can display statistics accumulated through different timeframes, as well as the live camera feed. The HEX display will be used to show the current number of people within the space and the LED lights will act as a stop sign to stop the flow when a maximum number of people is met. 
+A camera and a thermal sensor will be attached to a Raspberry Pi to collect images for OpenCV in order to identify people who pass through the field of view. The DE1-SoC will be used to act as an accelerator for image de-noising and sharpening before the data is fed through OpenCV. A cross-platform mobile application can display statistics accumulated through different timeframes, as well as the live camera feed. The HEX display will be used to show the current number of people within the space and the LED lights will act as a stop sign to stop the flow when a maximum number of people is met. 
 
 ## Target Market
 
@@ -30,18 +30,37 @@ Stores, offices, schools etc. any confined place with a lot of foot traffic look
 4. **Security**: the videos taken will not be stored for long term 
 5. **Availability**: the service should be readily available for use (this can be simplified to when the DE1-SOC is on)be able to support multiple exits and entrance
 
+## Project Flowchart
+![flowchart](docs/project-flowchart.pdf)
+
 ## Hardware Component
 
-- to be finalized
+The Raspberry Pi will be connected to a video camera, two IR sensors and a thermal sensor. Thermal sensor gate array will be sent to the DE1-SoC via the Ethernet for image processing. 
 
-## Cloud Component
+The DE1-SoC will receive and denoise the thermal gate array data and send them back to the Raspberry Pi via a Ethernet connection. 
 
-- to be finalized
+The Raspberry Pi will then use OpenCV to detect high temperatures in streams before sending the stream along with statistics to the cloud component. 
+
+### FPGA Top-Level Schematics
+![foga-top-level](docs/schematics/fpga-top-level.png)
+
+### Qsys System Schematics
+![qsys-system](docs/schematics/qsys-system.png)
+
+### Hardware Accelerator Schematics
+![hardware-accelerator](docs/schematics/hardware-accelerator.png)
+
+### IR Sensor Circuit
+![ir-sensor-vircuit](docs/schematics/ir-sensor-circuit.png)
 
 ## Networking Component
 
-- to be finalized
+Text
 
-## Software (UI) Component
+## Cloud Component
 
-- to be finalized
+Text
+
+## User (App) Component
+
+Text
