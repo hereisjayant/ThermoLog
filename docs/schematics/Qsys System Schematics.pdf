@@ -1,0 +1,1897 @@
+%PDF-1.4
+1 0 obj
+<<
+  /Title    (heir)
+  /Author   (Ethan)
+  /Producer (Concept Engineering GmbH)
+  /Creator  (Nlview 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35)
+  /CreationDate (D:20220329095741)
+>>
+endobj
+2 0 obj
+<<
+  /Type     /Catalog
+  /Pages    3 0 R
+  /Outlines 7 0 R
+  /PageMode /UseThumbs
+  /ViewerPreferences << /DisplayDocTitle true >>
+>>
+endobj
+4 0 obj
+<<
+  /Type     /Font
+  /Subtype  /Type1
+  /Name     /F1
+  /BaseFont /Helvetica
+  /Encoding /MacRomanEncoding
+>>
+endobj
+5 0 obj
+<<
+  /ExtGState  << /GS 6 0 R >>
+  /Font       << /F1 4 0 R >>
+  /ColorSpace << /PCS [/Pattern /DeviceRGB] >>
+  /Pattern    8 0 R
+>>
+endobj
+6 0 obj
+<<
+  /Type /ExtGState
+  /LC   0
+  /LJ   0
+  /ML   4.0
+>>
+endobj
+%
+% Nlview page 1
+% (user space scaling 0.256667)
+%
+9 0 obj
+<<
+  /Type      /Page
+  /Parent    3 0 R
+  /Resources 5 0 R
+  /Contents  10 0 R
+  /MediaBox  [0 0 612 792]
+  /Rotate    0
+>>
+endobj
+10 0 obj
+<<
+  /Length 13429
+>>
+stream
+1 0 0 1 0 154.167 cm
+1 0 0 1 28.8 28.8 cm
+0.256667 0 0 -0.256667 0 0 cm
+1 0 0 1 0 -1660 cm
+0 0 2160 1660 re
+W n
+/GS gs
+1 0 0 1 250 350 cm
+q
+1.000 1.000 1.000 rg
+-250 -350 2160 1661 re
+f
+Q
+q
+/PCS cs
+/Shading11 scn
+138 10 m
+1592 10 l
+1592 10 l
+1595 10 l
+1598 12 l
+1600 15 l
+1600 18 l
+1600 18 l
+1600 862 l
+1600 862 l
+1600 865 l
+1598 868 l
+1595 870 l
+1592 870 l
+1592 870 l
+138 870 l
+138 870 l
+135 870 l
+132 868 l
+130 865 l
+130 862 l
+130 862 l
+130 18 l
+130 18 l
+130 15 l
+132 12 l
+135 10 l
+h f
+Q
+4 w
+0.067 0.067 0.267 RG
+138 10 m
+1592 10 l
+S
+1600 18 m
+1600.09 17.3367 1600.09 16.6633 1600 16 c
+1599.45 12.134 1595.87 9.44772 1592 10 c
+S
+1600 18 m
+1600 862 l
+S
+1592 870 m
+1592.66 870.095 1593.34 870.095 1594 870 c
+1597.87 869.448 1600.55 865.866 1600 862 c
+S
+1592 870 m
+138 870 l
+S
+130 862 m
+129.905 862.663 129.905 863.337 130 864 c
+130.552 867.866 134.134 870.552 138 870 c
+S
+130 862 m
+130 18 l
+S
+138 10 m
+137.337 9.90524 136.663 9.90524 136 10 c
+132.134 10.5523 129.448 14.134 130 18 c
+S
+3 w
+0.000 0.000 0.000 RG
+135 21 m
+147 21 l
+S
+1 w
+133 13 16 16 re
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 865 872 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-12.5 -9 Td
+(qsys) Tj
+ET
+Q
+0.067 0.067 0.267 RG
+120 280 m
+130 280 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 128 278 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-29 2 Td
+(hps_io) Tj
+ET
+Q
+120 390 m
+130 390 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 128 388 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-18 2 Td
+(leds) Tj
+ET
+Q
+120 360 m
+130 360 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 128 358 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-36 2 Td
+(memory) Tj
+ET
+Q
+120 590 m
+130 590 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 128 588 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-28 2 Td
+(sdram) Tj
+ET
+Q
+1610 770 m
+1600 770 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 1602 768 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(sdram_clk) Tj
+ET
+Q
+120 750 m
+130 750 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 128 748 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-82 2 Td
+(system_pll_ref_clk) Tj
+ET
+Q
+120 770 m
+130 770 l
+S
+q
+0.067 0.067 0.267 rg
+1 0 0 1 128 768 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-92 2 Td
+(system_pll_ref_reset) Tj
+ET
+Q
+140 280 m
+130 280 l
+S
+140 390 m
+130 390 l
+S
+140 360 m
+130 360 l
+S
+140 590 m
+130 590 l
+S
+1590 770 m
+1600 770 l
+S
+140 750 m
+130 750 l
+S
+140 770 m
+130 770 l
+S
+q
+0.765 0.831 1.000 rg
+1140 418 60 78 re
+f
+Q
+0.000 0.000 0.133 RG
+1140 418 60 78 re
+S
+3 w
+0.000 0.000 0.000 RG
+1151 423 m
+1151 435 l
+S
+1145 429 m
+1157 429 l
+S
+1 w
+1143 421 16 16 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1170 498 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-66 -9 Td
+(JTAG_To_FPGA_Bridge) Tj
+ET
+Q
+0.000 0.000 0.133 RG
+1130 450 m
+1140 450 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1138 449 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-12 2 Td
+(clk) Tj
+ET
+Q
+1130 470 m
+1140 470 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1138 469 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-40 2 Td
+(clk_reset) Tj
+ET
+Q
+1210 450 m
+1200 450 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1202 449 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(master) Tj
+ET
+Q
+1210 470 m
+1200 470 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1202 469 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(master_reset) Tj
+ET
+Q
+q
+0.765 1.000 0.996 rg
+210 718 60 98 re
+f
+Q
+210 718 60 98 re
+S
+3 w
+0.000 0.000 0.000 RG
+221 723 m
+221 735 l
+S
+215 729 m
+227 729 l
+S
+1 w
+213 721 16 16 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 240 818 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-34 -9 Td
+(System_PLL) Tj
+ET
+Q
+0.000 0.000 0.133 RG
+200 750 m
+210 750 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 208 749 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-29 2 Td
+(ref_clk) Tj
+ET
+Q
+200 770 m
+210 770 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 208 769 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-39 2 Td
+(ref_reset) Tj
+ET
+Q
+280 790 m
+270 790 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 272 789 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(sys_clk) Tj
+ET
+Q
+280 770 m
+270 770 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 272 769 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(sdram_clk) Tj
+ET
+Q
+280 750 m
+270 750 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 272 749 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(reset_source) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+810 208 60 178 re
+f
+Q
+810 208 60 178 re
+S
+3 w
+0.000 0.000 0.000 RG
+821 213 m
+821 225 l
+S
+815 219 m
+827 219 l
+S
+1 w
+813 211 16 16 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 840 388 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-39.5 -9 Td
+(ARM_A9_HPS) Tj
+ET
+Q
+0.000 0.000 0.133 RG
+800 340 m
+810 340 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 339 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-74 2 Td
+(h2f_mpu_events) Tj
+ET
+Q
+800 360 m
+810 360 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 359 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-36 2 Td
+(memory) Tj
+ET
+Q
+800 280 m
+810 280 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 279 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-29 2 Td
+(hps_io) Tj
+ET
+Q
+880 340 m
+870 340 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 872 339 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(h2f_reset) Tj
+ET
+Q
+800 300 m
+810 300 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 299 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-61 2 Td
+(h2f_axi_clock) Tj
+ET
+Q
+880 300 m
+870 300 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 872 299 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(h2f_axi_master) Tj
+ET
+Q
+800 240 m
+810 240 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 239 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-61 2 Td
+(f2h_axi_clock) Tj
+ET
+Q
+800 260 m
+810 260 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 259 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-61 2 Td
+(f2h_axi_slave) Tj
+ET
+Q
+800 320 m
+810 320 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 808 319 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-76 2 Td
+(h2f_lw_axi_clock) Tj
+ET
+Q
+880 320 m
+870 320 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 872 319 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(h2f_lw_axi_master) Tj
+ET
+Q
+880 260 m
+870 260 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 872 259 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(f2h_irq0) Tj
+ET
+Q
+880 280 m
+870 280 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 872 279 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(f2h_irq1) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+470 448 60 78 re
+f
+Q
+470 448 60 78 re
+S
+3 w
+0.000 0.000 0.000 RG
+481 453 m
+481 465 l
+S
+475 459 m
+487 459 l
+S
+1 w
+473 451 16 16 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 500 528 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-62 -9 Td
+(JTAG_To_HPS_Bridge) Tj
+ET
+Q
+0.000 0.000 0.133 RG
+460 480 m
+470 480 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 468 479 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-12 2 Td
+(clk) Tj
+ET
+Q
+460 500 m
+470 500 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 468 499 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+-40 2 Td
+(clk_reset) Tj
+ET
+Q
+540 480 m
+530 480 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 532 479 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(master) Tj
+ET
+Q
+540 500 m
+530 500 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 532 499 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 2 Td
+(master_reset) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1140 30 100 60 re
+f
+Q
+1140 30 100 60 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1190 92 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-30.5 -9 Td
+(Accelerator) Tj
+ET
+Q
+1130 60 m
+1140 60 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1142 60 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clock) Tj
+ET
+Q
+1130 80 m
+1140 80 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1142 80 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset) Tj
+ET
+Q
+1130 40 m
+1140 40 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1142 40 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(avalon_slave_0) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1440 70 60 80 re
+f
+Q
+1440 70 60 80 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1470 152 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-38.5 -9 Td
+(Interval_Timer) Tj
+ET
+Q
+1430 80 m
+1440 80 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 80 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clk) Tj
+ET
+Q
+1430 120 m
+1440 120 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 120 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset) Tj
+ET
+Q
+1430 140 m
+1440 140 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 140 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(s1) Tj
+ET
+Q
+1430 100 m
+1440 100 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 100 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(irq) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1440 180 110 80 re
+f
+Q
+1440 180 110 80 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1495 262 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-67.5 -9 Td
+(JTAG_UART_For_ARM0) Tj
+ET
+Q
+1430 210 m
+1440 210 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 210 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clk) Tj
+ET
+Q
+1430 250 m
+1440 250 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 250 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset) Tj
+ET
+Q
+1430 190 m
+1440 190 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 190 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(avalon_jtag_slave) Tj
+ET
+Q
+1430 230 m
+1440 230 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 230 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(irq) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1440 290 110 80 re
+f
+Q
+1440 290 110 80 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1495 372 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-67.5 -9 Td
+(JTAG_UART_For_ARM1) Tj
+ET
+Q
+1430 320 m
+1440 320 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 320 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clk) Tj
+ET
+Q
+1430 360 m
+1440 360 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 360 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset) Tj
+ET
+Q
+1430 300 m
+1440 300 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 300 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(avalon_jtag_slave) Tj
+ET
+Q
+1430 340 m
+1440 340 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 340 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(irq) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1440 400 130 80 re
+f
+Q
+1440 400 130 80 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1505 482 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-15.5 -9 Td
+(LEDS) Tj
+ET
+Q
+1430 410 m
+1440 410 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 410 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clk) Tj
+ET
+Q
+1430 450 m
+1440 450 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 450 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset) Tj
+ET
+Q
+1430 470 m
+1440 470 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 470 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(s1) Tj
+ET
+Q
+1430 430 m
+1440 430 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 430 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(external_connection) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1440 780 60 60 re
+f
+Q
+1440 780 60 60 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1470 842 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-39.5 -9 Td
+(Onchip_SRAM) Tj
+ET
+Q
+1430 790 m
+1440 790 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 790 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clk1) Tj
+ET
+Q
+1430 830 m
+1440 830 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 830 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(s1) Tj
+ET
+Q
+1430 810 m
+1440 810 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 810 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset1) Tj
+ET
+Q
+q
+0.765 0.831 1.000 rg
+1440 510 60 80 re
+f
+Q
+1440 510 60 80 re
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1470 592 cm
+BT
+/F1 12 Tf
+1 0 0 -1 0 0 Tm
+-21.5 -9 Td
+(SDRAM) Tj
+ET
+Q
+1430 520 m
+1440 520 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 520 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(clk) Tj
+ET
+Q
+1430 540 m
+1440 540 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 540 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(reset) Tj
+ET
+Q
+1430 560 m
+1440 560 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 560 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(s1) Tj
+ET
+Q
+1430 580 m
+1440 580 l
+S
+q
+0.000 0.000 0.133 rg
+1 0 0 1 1442 580 cm
+BT
+/F1 10 Tf
+1 0 0 -1 0 0 Tm
+0 -3.5 Td
+(wire) Tj
+ET
+Q
+0.000 0.000 1.000 RG
+280 770 m
+1590 770 l
+S
+140 590 m
+1400 590 l
+1400 580 l
+1430 580 l
+S
+140 280 m
+800 280 l
+S
+140 390 m
+630 390 l
+630 530 l
+1300 530 l
+1300 430 l
+1430 430 l
+S
+140 360 m
+800 360 l
+S
+140 750 m
+200 750 l
+S
+140 770 m
+200 770 l
+S
+880 260 m
+1040 260 l
+1040 130 l
+1340 130 l
+S
+q
+0.000 0.000 1.000 rg
+1338 128 5 5 re
+f
+Q
+1430 100 m
+1340 100 l
+1340 230 l
+1430 230 l
+S
+280 790 m
+360 790 l
+360 430 l
+650 430 l
+S
+q
+0.000 0.000 1.000 rg
+648 298 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+648 318 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+648 428 5 5 re
+f
+Q
+1130 60 m
+1060 60 l
+1060 450 l
+1130 450 l
+S
+1060 310 m
+1320 310 l
+S
+1320 320 m
+1430 320 l
+S
+1320 410 m
+1430 410 l
+S
+1320 520 m
+1430 520 l
+S
+q
+0.000 0.000 1.000 rg
+1318 208 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+1318 308 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+1318 318 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+1318 408 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+1318 518 5 5 re
+f
+Q
+360 480 m
+460 480 l
+S
+q
+0.000 0.000 1.000 rg
+358 478 5 5 re
+f
+Q
+800 240 m
+650 240 l
+650 430 l
+1060 430 l
+S
+q
+0.000 0.000 1.000 rg
+1058 308 5 5 re
+f
+Q
+q
+0.000 0.000 1.000 rg
+1058 428 5 5 re
+f
+Q
+1430 80 m
+1320 80 l
+1320 790 l
+1430 790 l
+S
+1320 210 m
+1430 210 l
+S
+650 300 m
+800 300 l
+S
+650 320 m
+800 320 l
+S
+[7 2 1 2] 3 d
+3 w
+0.000 0.467 1.000 RG
+880 320 m
+1000 320 l
+1000 40 l
+1130 40 l
+S
+880 300 m
+1000 300 l
+S
+1000 150 m
+1360 150 l
+S
+1360 190 m
+1430 190 l
+S
+1360 300 m
+1430 300 l
+S
+1210 450 m
+1360 450 l
+S
+1360 470 m
+1430 470 l
+S
+1360 560 m
+1430 560 l
+S
+q
+0.000 0.467 1.000 rg
+1357 147 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1357 187 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1357 297 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1357 447 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1357 467 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1357 557 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+997 297 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+997 147 7 7 re
+f
+Q
+1430 140 m
+1360 140 l
+1360 830 l
+1430 830 l
+S
+[] 0 d
+280 750 m
+380 750 l
+380 500 l
+460 500 l
+S
+380 610 m
+1020 610 l
+1020 80 l
+1130 80 l
+S
+1020 550 m
+1380 550 l
+S
+q
+0.000 0.467 1.000 rg
+1377 247 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1377 357 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1377 447 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1377 537 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1377 547 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+377 607 7 7 re
+f
+Q
+1020 470 m
+1130 470 l
+S
+880 340 m
+1020 340 l
+S
+q
+0.000 0.467 1.000 rg
+1017 547 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1017 467 7 7 re
+f
+Q
+q
+0.000 0.467 1.000 rg
+1017 337 7 7 re
+f
+Q
+1430 120 m
+1380 120 l
+1380 810 l
+1430 810 l
+S
+1380 250 m
+1430 250 l
+S
+1380 360 m
+1430 360 l
+S
+1380 450 m
+1430 450 l
+S
+1380 540 m
+1430 540 l
+S
+1 w
+0.000 0.000 1.000 RG
+880 280 m
+1040 280 l
+1040 340 l
+1430 340 l
+S
+540 480 m
+670 480 l
+670 260 l
+800 260 l
+S
+endstream
+endobj
+3 0 obj
+<<
+  /Type    /Pages
+  /Kids
+  [
+  9 0 R
+  ]
+  /Count   1
+  /ProcSet [/PDF /Text]
+>>
+endobj
+14 0 obj
+<<
+  /Title  (qsys qsys)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 102 291 515 516]
+  /Parent 13 0 R
+  /Next   15 0 R
+>>
+endobj
+15 0 obj
+<<
+  /Title  (qsys.ARM_A9_HPS ARM_A9_HPS)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 280 416 338 465]
+  /Parent 13 0 R
+  /Prev   14 0 R
+  /Next   16 0 R
+>>
+endobj
+16 0 obj
+<<
+  /Title  (qsys.Accelerator Accelerator)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 383 491 411 511]
+  /Parent 13 0 R
+  /Prev   15 0 R
+  /Next   17 0 R
+>>
+endobj
+17 0 obj
+<<
+  /Title  (qsys.Interval_Timer Interval_Timer)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 460 476 480 501]
+  /Parent 13 0 R
+  /Prev   16 0 R
+  /Next   18 0 R
+>>
+endobj
+18 0 obj
+<<
+  /Title  (qsys.JTAG_To_FPGA_Bridge JTAG_To_FPGA_Bridge)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 374 387 416 411]
+  /Parent 13 0 R
+  /Prev   17 0 R
+  /Next   19 0 R
+>>
+endobj
+19 0 obj
+<<
+  /Title  (qsys.JTAG_To_HPS_Bridge JTAG_To_HPS_Bridge)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 202 380 244 404]
+  /Parent 13 0 R
+  /Prev   18 0 R
+  /Next   20 0 R
+>>
+endobj
+20 0 obj
+<<
+  /Title  (qsys.JTAG_UART_For_ARM0 JTAG_UART_For_ARM0)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 459 448 494 473]
+  /Parent 13 0 R
+  /Prev   19 0 R
+  /Next   21 0 R
+>>
+endobj
+21 0 obj
+<<
+  /Title  (qsys.JTAG_UART_For_ARM1 JTAG_UART_For_ARM1)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 459 420 494 444]
+  /Parent 13 0 R
+  /Prev   20 0 R
+  /Next   22 0 R
+>>
+endobj
+22 0 obj
+<<
+  /Title  (qsys.LEDS LEDS)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 460 391 495 416]
+  /Parent 13 0 R
+  /Prev   21 0 R
+  /Next   23 0 R
+>>
+endobj
+23 0 obj
+<<
+  /Title  (qsys.Onchip_SRAM Onchip_SRAM)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 460 299 480 319]
+  /Parent 13 0 R
+  /Prev   22 0 R
+  /Next   24 0 R
+>>
+endobj
+24 0 obj
+<<
+  /Title  (qsys.SDRAM SDRAM)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 460 363 477 388]
+  /Parent 13 0 R
+  /Prev   23 0 R
+  /Next   25 0 R
+>>
+endobj
+25 0 obj
+<<
+  /Title  (qsys.System_PLL System_PLL)
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 136 305 177 334]
+  /Parent 13 0 R
+  /Prev   24 0 R
+>>
+endobj
+13 0 obj
+<<
+  /Title  (instances)
+  /C      [0.0 0.4 0.0]
+  /F      1
+  /Parent 12 0 R
+  /First  14 0 R
+  /Last   25 0 R
+  /Count  12
+  /Next   26 0 R
+>>
+endobj
+26 0 obj
+<<
+  /Title  (ports)
+  /C      [0.0 0.4 0.0]
+  /F      1
+  /Parent 12 0 R
+  /First  0 0 R
+  /Last   0 0 R
+  /Count  0
+  /Prev   13 0 R
+  /Next   27 0 R
+>>
+endobj
+27 0 obj
+<<
+  /Title  (portBuses)
+  /C      [0.0 0.4 0.0]
+  /F      1
+  /Parent 12 0 R
+  /First  0 0 R
+  /Last   0 0 R
+  /Count  0
+  /Prev   26 0 R
+  /Next   28 0 R
+>>
+endobj
+29 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(MASTER\)System_PLL.sdram_clk,\(MASTER\)qsys.sdram_clk\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 164 321 501 321]
+  /Parent 28 0 R
+  /Next   30 0 R
+>>
+endobj
+30 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(SLAVE\)SDRAM.wire,\(SLAVE\)qsys.sdram\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 128 367 460 370]
+  /Parent 28 0 R
+  /Prev   29 0 R
+  /Next   31 0 R
+>>
+endobj
+31 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(SLAVE\)qsys.hps_io,\(SLAVE\)ARM_A9_HPS.hps_io\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 128 447 298 447]
+  /Parent 28 0 R
+  /Prev   30 0 R
+  /Next   32 0 R
+>>
+endobj
+32 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(SLAVE\)qsys.leds,\(SLAVE\)LEDS.external_connection\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 128 382 460 419]
+  /Parent 28 0 R
+  /Prev   31 0 R
+  /Next   33 0 R
+>>
+endobj
+33 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(SLAVE\)qsys.memory,\(SLAVE\)ARM_A9_HPS.memory\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 128 426 298 426]
+  /Parent 28 0 R
+  /Prev   32 0 R
+  /Next   34 0 R
+>>
+endobj
+34 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(SLAVE\)qsys.system_pll_ref_clk,\(SLAVE\)System_PLL.ref_clk\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 128 326 144 326]
+  /Parent 28 0 R
+  /Prev   33 0 R
+  /Next   35 0 R
+>>
+endobj
+35 0 obj
+<<
+  /Title  (EXPORT<net_container>qsys</net_container>\(SLAVE\)qsys.system_pll_ref_reset,\(SLAVE\)System_PLL.ref_reset\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 128 321 144 321]
+  /Parent 28 0 R
+  /Prev   34 0 R
+  /Next   36 0 R
+>>
+endobj
+36 0 obj
+<<
+  /Title  (FAN_OUT<net_container>qsys</net_container>\(SLAVE\)Interval_Timer.irq,\(SLAVE\)JTAG_UART_For_ARM0.irq,\(MASTER\)ARM_A9_HPS.f2h_irq0\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 318 452 460 493]
+  /Parent 28 0 R
+  /Prev   35 0 R
+  /Next   37 0 R
+>>
+endobj
+37 0 obj
+<<
+  /Title  (FAN_OUT<net_container>qsys</net_container>\(SLAVE\)SDRAM.clk,\(SLAVE\)JTAG_To_HPS_Bridge.clk,\(SLAVE\)ARM_A9_HPS.f2h_axi_clock,\(SLAVE\)LEDS.clk,\(SLAVE\)JTAG_To_FPGA_Bridge.clk,\(SLAVE\)Interval_Timer.clk,\(SLAVE\)JTAG_UART_For_ARM1.clk,\(SLAVE\)ARM_A9_HPS.h2f_lw_axi_clock,\(SLAVE\)ARM_A9_HPS.h2f_axi_clock,\(SLAVE\)Accelerator.clock,\(SLAVE\)JTAG_UART_For_ARM0.clk,\(SLAVE\)Onchip_SRAM.clk1,\(MASTER\)System_PLL.sys_clk\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 164 316 460 504]
+  /Parent 28 0 R
+  /Prev   36 0 R
+  /Next   38 0 R
+>>
+endobj
+38 0 obj
+<<
+  /Title  (INTERCONNECT<net_container>qsys</net_container>\(MASTER\)JTAG_To_FPGA_Bridge.master,\(SLAVE\)Onchip_SRAM.s1,\(SLAVE\)Interval_Timer.s1,\(SLAVE\)JTAG_UART_For_ARM0.avalon_jtag_slave,\(MASTER\)ARM_A9_HPS.h2f_axi_master,\(SLAVE\)SDRAM.s1,\(MASTER\)ARM_A9_HPS.h2f_lw_axi_master,\(SLAVE\)Accelerator.avalon_slave_0,\(SLAVE\)LEDS.s1,\(SLAVE\)JTAG_UART_For_ARM1.avalon_jtag_slave\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 318 305 460 509]
+  /Parent 28 0 R
+  /Prev   37 0 R
+  /Next   39 0 R
+>>
+endobj
+39 0 obj
+<<
+  /Title  (INTERCONNECT<net_container>qsys</net_container>\(SLAVE\)Onchip_SRAM.reset1,\(SLAVE\)JTAG_UART_For_ARM1.reset,\(MASTER\)System_PLL.reset_source,\(SLAVE\)Interval_Timer.reset,\(MASTER\)ARM_A9_HPS.h2f_reset,\(SLAVE\)JTAG_To_HPS_Bridge.clk_reset,\(SLAVE\)JTAG_To_FPGA_Bridge.clk_reset,\(SLAVE\)LEDS.reset,\(SLAVE\)JTAG_UART_For_ARM0.reset,\(SLAVE\)Accelerator.reset,\(SLAVE\)SDRAM.reset\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 164 310 460 499]
+  /Parent 28 0 R
+  /Prev   38 0 R
+  /Next   40 0 R
+>>
+endobj
+40 0 obj
+<<
+  /Title  (POINT_TO_POINT<net_container>qsys</net_container>\(MASTER\)ARM_A9_HPS.f2h_irq1,\(SLAVE\)JTAG_UART_For_ARM1.irq\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 318 431 460 447]
+  /Parent 28 0 R
+  /Prev   39 0 R
+  /Next   41 0 R
+>>
+endobj
+41 0 obj
+<<
+  /Title  (POINT_TO_POINT<net_container>qsys</net_container>\(MASTER\)JTAG_To_HPS_Bridge.master,\(SLAVE\)ARM_A9_HPS.f2h_axi_slave\))
+  /C      [0.0 0.0 0.4]
+  /Dest   [9 0 R /FitR 231 395 298 452]
+  /Parent 28 0 R
+  /Prev   40 0 R
+>>
+endobj
+28 0 obj
+<<
+  /Title  (nets)
+  /C      [0.0 0.4 0.0]
+  /F      1
+  /Parent 12 0 R
+  /First  29 0 R
+  /Last   41 0 R
+  /Count  13
+  /Prev   27 0 R
+  /Next   42 0 R
+>>
+endobj
+42 0 obj
+<<
+  /Title  (netBundles)
+  /C      [0.0 0.4 0.0]
+  /F      1
+  /Parent 12 0 R
+  /First  0 0 R
+  /Last   0 0 R
+  /Count  0
+  /Prev   28 0 R
+>>
+endobj
+12 0 obj
+<<
+  /Title  (Nlview page 1)
+  /C      [0.4 0.0 0.0]
+  /Dest   [9 0 R /Fit]
+  /Parent 7 0 R
+  /First  13 0 R
+  /Last   42 0 R
+  /Count  5
+>>
+endobj
+11 0 obj
+<<
+  /Type /Pattern
+  /PatternType 2
+  /Shading <<
+    /ShadingType 2
+    /ColorSpace /DeviceRGB
+    /Coords [506.2 516.633 123.767 295.9]
+    /Extend [true true]
+    /Function <<
+      /FunctionType 2
+      /Domain [0.0 1.0]
+      /C0 [0.871 0.871 0.933]
+      /C1 [0.933 0.933 0.933]
+      /N 1.0
+    >>
+  >>
+>>
+endobj
+8 0 obj
+<<
+  /Shading11        11 0 R
+>>
+endobj
+7 0 obj
+<<
+  /Type  /Outline
+  /First 12 0 R
+  /Last  12 0 R
+  /Count 1
+>>
+endobj
+xref
+0 43
+0000000000 65535 f 
+0000000009 00000 n 
+0000000206 00000 n 
+0000014379 00000 n 
+0000000356 00000 n 
+0000000483 00000 n 
+0000000631 00000 n 
+0000022098 00000 n 
+0000022050 00000 n 
+0000000755 00000 n 
+0000000895 00000 n 
+0000021720 00000 n 
+0000021563 00000 n 
+0000016596 00000 n 
+0000014479 00000 n 
+0000014621 00000 n 
+0000014797 00000 n 
+0000014975 00000 n 
+0000015159 00000 n 
+0000015353 00000 n 
+0000015545 00000 n 
+0000015737 00000 n 
+0000015929 00000 n 
+0000016093 00000 n 
+0000016271 00000 n 
+0000016437 00000 n 
+0000016757 00000 n 
+0000016928 00000 n 
+0000021231 00000 n 
+0000017103 00000 n 
+0000017334 00000 n 
+0000017566 00000 n 
+0000017806 00000 n 
+0000018051 00000 n 
+0000018291 00000 n 
+0000018544 00000 n 
+0000018801 00000 n 
+0000019084 00000 n 
+0000019658 00000 n 
+0000020182 00000 n 
+0000020716 00000 n 
+0000020978 00000 n 
+0000021404 00000 n 
+trailer
+<<
+  /Size 43
+  /Info 1 0 R
+  /Root 2 0 R
+>>
+startxref
+22180
+%%EOF
