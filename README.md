@@ -31,7 +31,7 @@ Stores, offices, schools etc. any confined place with a lot of foot traffic look
 5. **Availability**: the service should be readily available for use (this can be simplified to when the DE1-SOC is on)be able to support multiple exits and entrance
 
 ## Project Flowchart
-![flowchart](docs/project-flowchart.pdf)
+![flowchart](docs/project-flowchart.png)
 
 ## Hardware Component
 
