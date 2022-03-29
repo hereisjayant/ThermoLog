@@ -186,10 +186,12 @@ class HomePageController extends GetxController {
     _storeList.forEach((element) {
       if (element.storeId == storeId) {
         element.customerCount = 0;
+        element.highTempTimes = [];
         update();
       }
     });
-    await storeProvider.storeUpdate(storeId: storeId, customerCount: 0);
+    await storeProvider
+        .storeUpdate(storeId: storeId, customerCount: 0, highTempTimes: []);
     update();
   }
 

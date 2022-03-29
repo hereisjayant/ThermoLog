@@ -55,6 +55,7 @@ class StoreProvider {
     int? customerCount,
     bool? isSafe,
     List<double>? temperatures,
+    List<int>? highTempTimes,
     String? name,
     List<String>? liveStreamIds,
   }) async {
@@ -63,6 +64,7 @@ class StoreProvider {
       "customerCount": customerCount,
       "isSafe": isSafe,
       "temperatures": temperatures,
+      "highTempTimes": highTempTimes,
       "name": name,
       "liveStreamId": liveStreamIds,
     });

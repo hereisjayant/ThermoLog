@@ -9,6 +9,7 @@ import 'package:app/utils/skeleton_shapes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -450,19 +451,57 @@ class HomePage extends StatelessWidget with BaseClass {
                                   gestureNavigationEnabled: true,
                                   backgroundColor: const Color(0x00000000),
                                 )),
-                            // Container(
-                            //   child: Center(),
-                            //   margin:
-                            //       const EdgeInsets
-                            //               .only(
-                            //           bottom:
-                            //               10,
-                            //           top: 10,
-                            //           left:
-                            //               20,
-                            //           right:
-                            //               20),
-                            // ),
+                            Container(
+                              margin:
+                                  const EdgeInsets.only(bottom: 10, top: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'High Temp Times:',
+                                    style: GoogleFonts.poppins(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12),
+                                  ),
+                                  controller.storeList[index].highTempTimes!
+                                          .isEmpty
+                                      ? Text(
+                                          'No high temperatures, congrats!!',
+                                          style: GoogleFonts.poppins(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 12),
+                                        )
+                                      : ListView.builder(
+                                          itemCount:
+                                              controller.storeList.length,
+                                          scrollDirection: Axis.vertical,
+                                          itemBuilder: (BuildContext context,
+                                              int timeIndex) {
+                                            return Container(
+                                              width: Get.width,
+                                              height: Get.size.height * 0.1,
+                                              child: Text(
+                                                DateFormat('yyyy-MM-dd hh:mm')
+                                                    .format(DateTime
+                                                        .fromMillisecondsSinceEpoch(
+                                                            controller
+                                                                    .storeList[
+                                                                        index]
+                                                                    .highTempTimes![
+                                                                timeIndex])),
+                                                style: GoogleFonts.poppins(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 12),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                ],
+                              ),
+                            ),
                           ],
                         );
                       },

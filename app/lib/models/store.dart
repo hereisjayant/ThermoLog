@@ -3,6 +3,7 @@ class Store {
   int? customerCount;
   bool? isSafe;
   List<double>? temperatures;
+  List<int>? highTempTimes;
   String? storeId;
   String? name;
   List<String>? liveStreamIds;
@@ -26,10 +27,16 @@ class Store {
     storeId = json["_id"]["\$oid"];
     name = json["name"];
     streamUrl = json["streamUrl"];
+    liveStreamIds = [];
     if (json["liveStreamIds"] != null) {
-      liveStreamIds = [];
       json["liveStreamIds"].forEach((v) {
         liveStreamIds?.add(v);
+      });
+    }
+    highTempTimes = [];
+    if (json["highTempTimes"] != null) {
+      json["highTempTimes"].forEach((v) {
+        highTempTimes?.add(v);
       });
     }
     temperatures = [];
@@ -51,6 +58,11 @@ class Store {
       map["liveStreamIds"] = liveStreamIds?.map((v) => v.toString()).toList();
     } else {
       map["liveStreamIds"] = [];
+    }
+    if (highTempTimes != null) {
+      map["highTempTimes"] = highTempTimes?.map((v) => v.toString()).toList();
+    } else {
+      map["highTempTimes"] = [];
     }
     if (temperatures != null) {
       map["temperatures"] = temperatures?.map((v) => v.toString()).toList();

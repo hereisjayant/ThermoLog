@@ -25,8 +25,8 @@ class User {
     photoUrl = json["photoUrl"];
     lastTime = json["lastTime"];
     safeTime = json["safeTime"];
+    storeIds = [];
     if (json["storeIds"] != null) {
-      storeIds = [];
       json["storeIds"].forEach((v) {
         storeIds?.add(v["\$oid"]);
       });
