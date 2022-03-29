@@ -20,36 +20,40 @@ CORS(app)
 ############## user endpoints ################
 
 
-@app.route('/user/<userId>/deleteUser', methods=['DELETE'])
-async def delete_user(userId):
+@app.route('/user/<userId>', methods=['GET', 'PUT', 'DELETE'])
+def delete_user(userId):
     # delete stores first
-    try:
-        user_stores = userDb.find({'_id': ObjectId(userId)})["storeIds"]
-        for storeId in user_stores:
-            result = storeDb.delete_one({"_id": ObjectId(storeId)})
-            if not result:
-                return ('user not deleted', 417)
+    if request.method == 'GET':
+        try:
+            user = userDb.find_one({"_id": ObjectId(userId) })
+            if user:
+                return (jsonify(json.loads(json_util.dumps(user))), 200)
+            return ('user not found', 400)
+        except Exception as e:
+            return ("There was an error querying the user" + str(e), 417)
+    elif request.method == 'PUT':
+        try:
+            user = userDb.find_one({"_id": ObjectId(userId)})
+            for key in request.get_json():
+                user[key] = request.json[key]
+            result = userDb.replace_one({"_id": ObjectId(userId)}, user)
+            if result:
+                return (jsonify(json.loads(json_util.dumps(user))), 200)
+            return ("there was an error updating the user", 417)
+        except Exception as e:
+            return ("There was an error updating the user" + str(e), 417)
+    elif request.method == 'DELETE':
+        try:
+            user_stores = userDb.find({'_id': ObjectId(userId)})["storeIds"]
+            for storeId in user_stores:
+                result = storeDb.delete_one({"_id": ObjectId(storeId)})
+                if not result:
+                    return ('user not deleted', 417)
 
-        result = userDb.delete_one({"_id": ObjectId(userId)})
-        return (result, 200)
-    except Exception as e:
-        return ("There was an error deleting the user" + str(e), 417)
-
-
-
-@app.route('/user/<userId>/update', methods=['PUT'])
-async def update_user(userId):
-    try:
-        user = userDb.find_one({"_id": ObjectId(userId)})
-        for key in request.get_json():
-            user[key] = request.json[key]
-        result = userDb.replace_one({"_id": ObjectId(userId)}, user)
-        if result:
-            return (jsonify(json.loads(json_util.dumps(user))), 200)
-        return ("there was an error updating the user", 417)
-    except Exception as e:
-        return ("There was an error updating the user" + str(e), 417)
-    
+            result = userDb.delete_one({"_id": ObjectId(userId)})
+            return (result, 200)
+        except Exception as e:
+            return ("There was an error deleting the user" + str(e), 417)
 
 @app.route('/user/byEmailOrId', methods=['GET'])
 def find_user_by_email_or_id():
@@ -72,20 +76,16 @@ def find_user_by_email_or_id():
     except Exception as e:
         return ("There was an error querying the user" + str(e), 417)    
 
-@app.route('/user/<userId>', methods=['GET'])
-def find_user(userId):
-    try:
-        user = userDb.find_one({"_id": ObjectId(userId) })
-        if user:
-            return (jsonify(json.loads(json_util.dumps(user))), 200)
-        return ('user not found', 400)
-    except Exception as e:
-        return ("There was an error querying the user" + str(e), 417)
-
-
-@app.route('/user/create', methods=['GET', 'POST'])
+@app.route('/user', methods=['GET', 'POST'])
 def create_user():
     from datetime import datetime
+    if request.method == 'GET':
+        try:
+            userList = [doc for doc in userDb.find()]
+            print(type(userList))
+            return (jsonify(json.loads(json_util.dumps(userList))), 200)
+        except Exception as e:
+            return ("There was an error pulling all the users" + str(e), 417)
     if request.method == 'POST':
 
         data = request.form.to_dict()
@@ -112,59 +112,49 @@ def create_user():
         #     storeIds=data["storeIds"] if data["storeIds"] is not None else [],
         # )
 
-@app.route('/user/getAll', methods=['GET'])
-def get_all_users():
-    try:
-        userList = [doc for doc in userDb.find()]
-        print(type(userList))
-        return (jsonify(json.loads(json_util.dumps(userList))), 200)
-    except Exception as e:
-        return ("There was an error pulling all the users" + str(e), 417)
-
 ############## store endpoints ################
 
-# TODO: fetch livestream endpoint
-
-
-@app.route('/store/<storeId>/deleteStore', methods=['DELETE'])
-async def delete_store(storeId):
-    try:
-        result = storeDb.delete_one({"_id": ObjectId(storeId)})
-        return (result, 200)
-    except Exception as e:
-        return ("There was an error deleting the store" + str(e), 417)
-
-
-@app.route('/store/<storeId>/update', methods=['PUT'])
-async def update_store(storeId):
-    try:
-        store = storeDb.find_one({"_id": ObjectId(storeId)})
-        for key in request.get_json():
-            store[key] = request.json[key]
-        result = storeDb.replace_one({"_id": ObjectId(storeId)}, store)
-        if result:
-            return (jsonify(json.loads(json_util.dumps(store))), 200)
-        return ("there was an error updating the store", 417)
-    except Exception as e:
-        return ("There was an error updating the store" + str(e), 417)
-
-
-@app.route('/store/<storeId>/byId', methods=['GET'])
-def find_store(storeId):
-    try:
-        if storeId:
+@app.route('/store/<storeId>', methods=['PUT', 'GET', 'DELETE'])
+def store(storeId):
+    if request.method == 'GET':
+        try:
+            if storeId:
+                store = storeDb.find_one({"_id": ObjectId(storeId)})
+                if store:
+                    return (jsonify(json.loads(json_util.dumps(store))), 200)
+                return ('store not found', 400)
+            else:
+                return ("invalid query", 400)
+        except Exception as e:
+            return ("There was an error querying the store" + str(e), 417)
+    if request.method == 'PUT':
+        try:
             store = storeDb.find_one({"_id": ObjectId(storeId)})
-            if store:
+            for key in request.get_json():
+                store[key] = request.json[key]
+            result = storeDb.replace_one({"_id": ObjectId(storeId)}, store)
+            if result:
                 return (jsonify(json.loads(json_util.dumps(store))), 200)
-            return ('store not found', 400)
-        else:
-            return ("invalid query", 400)
-    except Exception as e:
-        return ("There was an error querying the store" + str(e), 417)
+            return ("there was an error updating the store", 417)
+        except Exception as e:
+            return ("There was an error updating the store" + str(e), 417)
+    if request.method == 'DELETE':
+        try:
+            result = storeDb.delete_one({"_id": ObjectId(storeId)})
+            return (result, 200)
+        except Exception as e:
+            return ("There was an error deleting the store" + str(e), 417)
 
 
-@app.route('/store/create', methods=['GET', 'POST'])
+@app.route('/store', methods=['GET', 'POST'])
 def create_store():
+    if request.method == 'GET':
+        try:
+            storeList = [doc for doc in storeDb.find()]
+            print("GET logger")
+            return (jsonify(json.loads(json_util.dumps(storeList))), 200)
+        except Exception as e:
+            return ("There was an error pulling all the stores" + str(e), 417)
     if request.method == 'POST':
         data = request.form.to_dict()
         data["isSafe"] = True
@@ -182,18 +172,6 @@ def create_store():
         #     name=data["name"],
         #     liveStreamIds=data["liveStreamIds"],
         # )
-
-
-@app.route('/store/getAll', methods=['GET'])
-def get_all_stores():
-    try:
-        storeList = [doc for doc in storeDb.find()]
-       
-        print("GET logger")
-        return (jsonify(json.loads(json_util.dumps(storeList))), 200)
-    except Exception as e:
-        return ("There was an error pulling all the stores" + str(e), 417)
-
 ############## store endpoints ################
 
 # TODO: fetch livestream endpoint
@@ -203,7 +181,7 @@ def testing():
     print("Hey logger")
     if request.method == 'GET':
         print("GET logger")
-        return ('Hello Guy Lemieux', 200)
+        return ('Hello Guy Lemieux x2', 200)
 
 
 if __name__ == '__main__':

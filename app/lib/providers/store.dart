@@ -11,8 +11,7 @@ class StoreProvider {
     // Map<String, dynamic> query = {
     //   "limit": "$limit"
     // };
-    var res =
-        await _apiService.get(ApiConstants.store + ApiConstants.storeGetAll);
+    var res = await _apiService.get(ApiConstants.store);
     res.forEach((element) {
       newsList.add(Store.fromJson(element));
     });
@@ -36,13 +35,11 @@ class StoreProvider {
       "liveStreamIds": liveStreamIds,
     });
     body = removeNullAndEmptyParams(body)!;
-    return await _apiService.post(ApiConstants.store + ApiConstants.storeCreate,
-        body: body);
+    return await _apiService.post(ApiConstants.store, body: body);
   }
 
   Future<Store> storeById(String id) async {
-    return Store.fromJson(await _apiService
-        .get(ApiConstants.store + id + ApiConstants.storeById));
+    return Store.fromJson(await _apiService.get(ApiConstants.store + id));
   }
 
   Future<dynamic> storeFetchLivestream(String liveStreamId) async {
@@ -70,13 +67,10 @@ class StoreProvider {
       "liveStreamId": liveStreamIds,
     });
     body = removeNullAndEmptyParams(body)!;
-    return await _apiService.put(
-        ApiConstants.store + storeId + ApiConstants.storeUpdate,
-        body: body);
+    return await _apiService.put(ApiConstants.store + storeId, body: body);
   }
 
   Future<bool> storeDeleteStore(String id) async {
-    return await _apiService
-        .delete(ApiConstants.store + id + ApiConstants.storeDeleteStore);
+    return await _apiService.delete(ApiConstants.store + id);
   }
 }
