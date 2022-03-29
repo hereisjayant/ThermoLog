@@ -20,7 +20,7 @@ Stores, offices, schools etc. Any confined place with a lot of foot traffic look
 
 1. **Speed**: everything needs to be real-time, the detection and the sensing need to be fast enough to detect and point out the suspected cases before they enter the premises
 2. **Easy to use UI**: and easy to understand language and data visualization for a wide target market
-3. **Accuracy**: The sensors need to be accurate to detect feverish temperature
+3. **Accuracy**: the sensors need to be accurate to detect feverish temperature
 4. **Security**: the videos taken will not be stored for long term 
 5. **Availability**: the service should be readily available for use (this can be simplified to when the DE1-SOC is on)be able to support multiple exits and entrance
 
