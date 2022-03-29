@@ -1,4 +1,4 @@
-# ThermoLog
+# <img src="docs/logo.png" alt="logo" width="20"/> ThermoLog
 
 ### The Problem
 
@@ -59,7 +59,7 @@ The Raspberry Pi will then use OpenCV to detect high temperatures in streams bef
 ![hardware-accelerator](docs/schematics/hardware-accelerator.png)
 
 ### IR Sensor Circuit
-![ir-sensor-vircuit](docs/schematics/ir-sensor-circuit.png)
+<img src="docs/schematics/ir-sensor-circuit.png" alt="ir-sensor-vircuit" width="200"/>
 
 ## Networking Component
 
