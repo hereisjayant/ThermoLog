@@ -63,12 +63,24 @@ The Raspberry Pi will then use OpenCV to detect high temperatures in streams bef
 
 ## Networking Component
 
-Text
+Using a Ethernet connection to transmit the thermal array from the RPi to the DE1-SoC and receive the processed data back at the RPi. 
+
+Combine the thermal data with the video stream and IR sensor data and upload the stream via Ethernet. 
+
+Access the stream via a network address on the mobile app, with high security due to exclusively local access. 
 
 ## Cloud Component
 
-Text
+Heroku hosted Flask instance to transmit data from the RPi to the app. 
 
-## User (App) Component
+Data stored in MongoDB for preservation through instances. 
 
-Text
+REST API interface for User and Store models with video live streaming. 
+
+## User Component
+
+MVC Mobile App in Flutter which connects to the Flask service and Socket to fetch live data. 
+
+Secure access to store data via Firebase Authentication. 
+
+Livestream of video with thermal imaging along with store stats. 
