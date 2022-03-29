@@ -3,15 +3,28 @@ from imutils.video import FPS
 import face_recognition
 import imutils
 import time
+from datetime import datetime
 import cv2
 # For thermal:
 import numpy as np
 import busio
 import board
 import adafruit_amg88xx
+# mongoDB
+import urllib
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+from bson.objectid import ObjectId
+
+
+client = MongoClient("mongodb+srv://Team-35:" + urllib.parse.quote_plus("asd()32q441%D") + "@themallog0.hekpn.mongodb.net/ThermalLogDB?retryWrites=true&w=majority", server_api=ServerApi('1'))
+
+storeDb = client.prod.stores
+
+storeId = ObjectId("62302f5ec6d5bc2cd7826ed1") 
 
 def temp_alert():
-    print("Temp Alert")
+    storeDb.update_one({ "_id": storeId }, { "$push": { "highTempTimes": datetime.now() } })
 
 # thermal sensor init 
 i2c = busio.I2C(board.SCL, board.SDA)

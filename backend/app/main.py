@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS
+from datetime import datetime
 import urllib 
 from flask import jsonify
 from bson import json_util
@@ -78,7 +79,6 @@ def find_user_by_email_or_id():
 
 @app.route('/user', methods=['GET', 'POST'])
 def create_user():
-    from datetime import datetime
     if request.method == 'GET':
         try:
             userList = [doc for doc in userDb.find()]
