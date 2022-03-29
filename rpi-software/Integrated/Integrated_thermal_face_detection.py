@@ -10,10 +10,13 @@ import busio
 import board
 import adafruit_amg88xx
 
+def temp_alert():
+    print("Temp Alert")
+
 # thermal sensor init 
 i2c = busio.I2C(board.SCL, board.SDA)
 amg = adafruit_amg88xx.AMG88XX(i2c)
-thermal_arr = amg.pixels
+threshold_temp = 25
 
 
 print("[INFO] loading face detector...")
@@ -25,20 +28,37 @@ fps = FPS().start()
 
 # loop over frames from the video file stream
 while True:
+    thermal_arr = amg.pixels
     # Lower the frame width to increase processing speed
     frame = vs.read()
-    frame = imutils.resize(frame, width=500, height=500)
+    frame = imutils.resize(frame, width=504, height=504)
     # Detect the fce boxes
     boxes = face_recognition.face_locations(frame)
 
     # loop over the recognized faces
     for (top, right, bottom, left) in boxes:
-        print(top, right,bottom,left)
         time.sleep(1)
         color = (0, 255, 0)
         # draw the predicted face name on the image - color is in BGR
-        sum_of_thermal = sum(sum(thermal_arr,[]))
-        cv2.putText(frame, sum_of_thermal/64, (left-50, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+        
+        # these are the coordinates for thermal cam:
+        thermal_top = round(top/63)
+        thermal_right = round(right/63)
+        thermal_bottom = round(bottom/63)
+        thermal_left = round(left/63)
+        thermal_slice = [thermal_arr[i][thermal_left:thermal_right] for i in range(thermal_top,thermal_bottom)]
+        thermal_slice_rows = len(thermal_slice)
+        thermal_slice_cols = len(thermal_slice[0])
+        sum_of_thermal = sum(sum(thermal_slice,[]))
+        avg_temp = sum_of_thermal/(thermal_slice_rows*thermal_slice_cols)
+        
+        # Send out an alert if the temp is higher than required
+        if avg_temp > threshold_temp:
+            temp_alert()
+            color = (255, 0, 0)
+        # print the temp out
+        cv2.putText(frame, str(int(avg_temp))+" C", (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+        # create boxes around faces
         cv2.rectangle(frame, (left, top), (right, bottom), color, 3)
 
     # display the camera feed to our screen

@@ -1,8 +1,28 @@
-# Foot Traffic Monitor with Thermal Sensing
+# <img src="docs/logo.png" alt="logo" width="20"/> ThermoLog
 
-## What is this?
+### The Problem
 
-A system that counts the number of people in and out of a premise, with thermal sensing to identify potential COVID cases to alert staff.
+Shop owners want to ensure the safety of their customers, but do not have the means to automatically monitor foot traffic and take temperature checks. 
+
+### The Solution
+
+A foot traffic monitoring system that counts the number of people going in and out of a premise, with thermal array sensing and cameras to identify potential COVID cases in order to alert staff via a mobile app. 
+
+### Societal Value
+
+A new tier of precaution and safety for business operators in staying open and keeping people safe. An effective and automated way to reduce further outbreaks. 
+
+### Target Market
+
+Stores, offices, schools etc. Any confined place with a lot of foot traffic looking to reduce the cost of flow monitoring and implementing COVID measures.
+
+### Needs and Constraints
+
+1. **Speed**: everything needs to be real-time, the detection and the sensing need to be fast enough to detect and point out the suspected cases before they enter the premises
+2. **Easy to use UI**: and easy to understand language and data visualization for a wide target market
+3. **Accuracy**: the sensors need to be accurate to detect feverish temperature
+4. **Security**: the videos taken will not be stored for long term 
+5. **Availability**: the service should be readily available for use (this can be simplified to when the DE1-SOC is on)be able to support multiple exits and entrance
 
 ## Description
 
@@ -16,22 +36,10 @@ We propose a hardware system that can detect the number of people going in and o
 
 ### How
 
-A camera and a thermal sensor will be attached to a Raspberry Pi to collect images for OpenCV in order to identify people who pass through the field of view. The DE1-SoC will be used to act as an accelerator for image de-noising and sharpening before the data is fed through OpenCV. A cross-platform mobile application can display statistics accumulated through different timeframes, as well as the live camera feed. The HEX display will be used to show the current number of people within the space and the LED lights will act as a stop sign to stop the flow when a maximum number of people is met. 
-
-## Target Market
-
-Stores, offices, schools etc. any confined place with a lot of foot traffic looking to reduce the cost of flow monitoring and implementing COVID measures.
-
-## Needs and Constraints of Target Market 
-
-1. **Speed**: everything needs to be real-time, the detection and the sensing need to be fast enough to detect and point out the suspected cases before they enter the premises
-2. **Easy to use UI**: and easy to understand language and data visualization for a wide target market
-3. **Accuracy**: The sensors need to be accurate to detect feverish temperature
-4. **Security**: the videos taken will not be stored for long term 
-5. **Availability**: the service should be readily available for use (this can be simplified to when the DE1-SOC is on)be able to support multiple exits and entrance
+A camera, IR sensors and a thermal sensor will be attached to a Raspberry Pi to collect images for OpenCV in order to identify people who pass through the field of view. The DE1-SoC will be used to act as an accelerator for image de-noising and before the data is fed through OpenCV. A cross-platform mobile application can display statistics accumulated through different timeframes, as well as the live camera feed. 
 
 ## Project Flowchart
-![flowchart](docs/project-flowchart.png)
+<img src="docs/project-flowchart.png" alt="flowchart"/>
 
 ## Hardware Component
 
@@ -42,25 +50,37 @@ The DE1-SoC will receive and denoise the thermal gate array data and send them b
 The Raspberry Pi will then use OpenCV to detect high temperatures in streams before sending the stream along with statistics to the cloud component. 
 
 ### FPGA Top-Level Schematics
-![foga-top-level](docs/schematics/fpga-top-level.png)
+<img src="docs/schematics/fpga-top-level.png" alt="fpga-top-level"/>
 
 ### Qsys System Schematics
-![qsys-system](docs/schematics/qsys-system.png)
+<img src="docs/schematics/qsys-system.png" alt="qsys-system"/>
 
 ### Hardware Accelerator Schematics
-![hardware-accelerator](docs/schematics/hardware-accelerator.png)
+<img src="docs/schematics/hardware-accelerator.png" alt="hardware-accelerator"/>
 
 ### IR Sensor Circuit
-![ir-sensor-vircuit](docs/schematics/ir-sensor-circuit.png)
+<img src="docs/schematics/ir-sensor-circuit.png" alt="ir-sensor-vircuit" width="200"/>
 
 ## Networking Component
 
-Text
+Using a Ethernet connection to transmit the thermal array from the RPi to the DE1-SoC and receive the processed data back at the RPi. 
+
+Combine the thermal data with the video stream and IR sensor data and upload the stream via Ethernet. 
+
+Access the stream via a network address on the mobile app, with high security due to exclusively local access. 
 
 ## Cloud Component
 
-Text
+Heroku hosted Flask instance to transmit data from the RPi to the app. 
 
-## User (App) Component
+Data stored in MongoDB for preservation through instances. 
 
-Text
+REST API interface for User and Store models with video live streaming. 
+
+## User Component
+
+MVC Mobile App in Flutter which connects to the Flask service and Socket to fetch live data. 
+
+Secure access to store data via Firebase Authentication. 
+
+Livestream of video with thermal imaging along with store stats. 
