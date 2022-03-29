@@ -13,8 +13,7 @@ class UserProvider {
     // Map<String, dynamic> query = {
     //   "limit": "$limit"
     // };
-    var res =
-        await _apiService.get(ApiConstants.user + ApiConstants.userGetAll);
+    var res = await _apiService.get(ApiConstants.user);
     res.forEach((element) {
       newsList.add(User.fromJson(element));
     });
@@ -41,8 +40,7 @@ class UserProvider {
       "name": name,
     });
     body = removeNullAndEmptyParams(body)!;
-    return await _apiService.post(ApiConstants.user + ApiConstants.userCreate,
-        body: body);
+    return await _apiService.post(ApiConstants.user, body: body);
   }
 
   Future<User?> userByEmailOrId({String? email, String? userId}) async {
@@ -85,15 +83,14 @@ class UserProvider {
     });
     body = removeNullAndEmptyParams(body)!;
 
-    var response = await _apiService
-        .put(ApiConstants.user + userId + ApiConstants.userUpdate, body: body);
+    var response =
+        await _apiService.put(ApiConstants.user + userId, body: body);
     var a = response as Map<String, dynamic>;
     var b = Map<String, dynamic>.from(a);
     return User.fromJson(b);
   }
 
   Future<bool> userDeleteUser(String id) async {
-    return await _apiService
-        .delete(ApiConstants.user + id + ApiConstants.userDeleteUser);
+    return await _apiService.delete(ApiConstants.user + id);
   }
 }
