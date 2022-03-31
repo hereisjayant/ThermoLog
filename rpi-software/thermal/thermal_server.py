@@ -30,8 +30,8 @@ def create_2d_array():
 """
 
 # define server port number
-serverName = "0.0.0.0"
-serverPort = 12000
+serverName = "169.254.248.30"
+serverPort = 12001
 
 # create TCP socket
 serverSocket = socket(AF_INET, SOCK_STREAM)
@@ -46,14 +46,14 @@ serverSocket.listen(1)
 print("The server is ready to receive at: " + gethostname())
 
 # accept incoming connection
-#clientSocket, addr = serverSocket.accept()
+clientSocket, addr = serverSocket.accept()
 
-#print("Connection from: " + str(addr))
+print("Connection from: " + str(addr))
 
 while True:
 
-    arr = amg.pixels
-
+    # arr = amg.pixels
+    arr = np.array(amg.pixels, dtype=np.uint32).reshape((height, width))
     print(arr)
 
     # send data to client
