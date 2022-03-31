@@ -45,7 +45,7 @@ clientSocket, addr = serverSocket.accept()
 print("Connection from: " + str(addr))
 
 def temp_alert():
-    storeDb.update_one({ "_id": storeId }, { "$push": { "highTempTimes": datetime.now() } })
+    storeDb.update_one({ "_id": storeId }, { "$push": { "highTempTimes": int(datetime.now().timestamp()) } })
 
 
 def socket_to_DE():
