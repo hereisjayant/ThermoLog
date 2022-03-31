@@ -30,8 +30,8 @@ vs = VideoStream(src=0).start()
 
 # Socket init:
 # define server port number
-serverName = "169.254.248.30"
-serverPort = 12005
+serverName = "192.168.0.10"
+serverPort = 12000
 # create TCP socket
 serverSocket = socket(AF_INET, SOCK_STREAM)
 # associate the server port number with this socket
