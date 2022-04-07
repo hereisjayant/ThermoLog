@@ -41,7 +41,8 @@ while(1):
  
         elif state_sensor_2==False:
             print("Person Exited")
-            num_people-=1
+            if num_people > 0:
+                num_people-=1
             storeDb.update_one({"_id": storeId}, {"$inc": { "customerCount": -1 }})
             print("Num of people: ", num_people)
             time.sleep(1)

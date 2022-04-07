@@ -53,14 +53,14 @@ def socket_to_DE():
     width = 8
     # arr = amg.pixels
     arr = np.array(amg.pixels, dtype=np.uint32).reshape((height, width))
-    print(arr)
+    #print(arr)
     # send data to client
     clientSocket.send(arr.tobytes())
     # receive data from client
     msg = clientSocket.recv(1024)
     # decode data
     result = np.frombuffer(msg, dtype=np.uint32).reshape((height, width))
-    print(result)
+    #print(result)
     time.sleep(1)
     return result
 
